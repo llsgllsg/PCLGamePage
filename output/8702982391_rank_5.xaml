@@ -123,7 +123,23 @@
     <StackPanel VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Margin="-7,-7,-7,0">
-                
+                <Border Height="25"
+        Margin="1"
+        Background="#e02e66"
+        CornerRadius="7"
+        HorizontalAlignment="Left"
+        ToolTip="此歌曲需要VIP/SVIP">
+    <StackPanel HorizontalAlignment="Center"
+                Margin="10,3,10,3"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+        <TextBlock FontSize="18"
+                   Margin="0,0,2,-1"
+                   Foreground="{DynamicResource ColorBrush8}"
+                   VerticalAlignment="Bottom"
+                   Text="VIP"/>
+    </StackPanel>
+</Border>
     </StackPanel>
 </local:MyCard>
 <local:MyCard Margin="4"
@@ -137,7 +153,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/IFLzL7nnxQ0Rd5DV9zC1uw==/109951173537380596.jpg"/>
+                    Source="https://p3.music.126.net/IFLzL7nnxQ0Rd5DV9zC1uw==/109951173537380596.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -403,7 +419,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/FkVRXcy_MJ0ONrBgVzt8pw==/109951173312579252.jpg"/>
+                    Source="https://p4.music.126.net/FkVRXcy_MJ0ONrBgVzt8pw==/109951173312579252.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -481,7 +497,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/dlsDdLopwJrE8JlWgWbaOA==/109951170031584299.jpg"/>
+                    Source="https://p3.music.126.net/dlsDdLopwJrE8JlWgWbaOA==/109951170031584299.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -575,7 +591,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/3UVDYMN--zrYB8RK53-4Fg==/109951171932414834.jpg"/>
+                    Source="https://p4.music.126.net/3UVDYMN--zrYB8RK53-4Fg==/109951171932414834.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -747,7 +763,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/s0D6UTU1YUtMcOCtwKHaRA==/109951170776174055.jpg"/>
+                    Source="https://p4.music.126.net/s0D6UTU1YUtMcOCtwKHaRA==/109951170776174055.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -825,7 +841,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/o_OjL_NZNoeog9fIjBXAyw==/18782957139233959.jpg"/>
+                    Source="https://p3.music.126.net/o_OjL_NZNoeog9fIjBXAyw==/18782957139233959.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -919,7 +935,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/wqyd40jQQLVTY9nynOwETg==/109951171031632866.jpg"/>
+                    Source="https://p4.music.126.net/wqyd40jQQLVTY9nynOwETg==/109951171031632866.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1107,7 +1123,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/b1hZLgWA9ihXkivZeqo81g==/109951168296446353.jpg"/>
+                    Source="https://p4.music.126.net/b1hZLgWA9ihXkivZeqo81g==/109951168296446353.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1201,7 +1217,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/jSH_ikeooxveWl0BTc3Xkg==/109951166786983190.jpg"/>
+                    Source="https://p4.music.126.net/jSH_ikeooxveWl0BTc3Xkg==/109951166786983190.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1279,7 +1295,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/Nd86SOcyCxU5Qu7jdZn_MQ==/7725168696876736.jpg"/>
+                    Source="https://p4.music.126.net/Nd86SOcyCxU5Qu7jdZn_MQ==/7725168696876736.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1357,7 +1373,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/WuECsFeBOT916fCZwEfCCQ==/109951169874834260.jpg"/>
+                    Source="https://p4.music.126.net/WuECsFeBOT916fCZwEfCCQ==/109951169874834260.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1435,7 +1451,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/K23SLth_R-gbroAN51_XIQ==/109951173390154569.jpg"/>
+                    Source="https://p4.music.126.net/K23SLth_R-gbroAN51_XIQ==/109951173390154569.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1513,7 +1529,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/R7yzr15Ftp4Mf59kTvy_uA==/109951167605022957.jpg"/>
+                    Source="https://p3.music.126.net/R7yzr15Ftp4Mf59kTvy_uA==/109951167605022957.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1591,7 +1607,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/lnOnBbP_H-052Hv5ls-QjA==/109951162964628408.jpg"/>
+                    Source="https://p3.music.126.net/lnOnBbP_H-052Hv5ls-QjA==/109951162964628408.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">

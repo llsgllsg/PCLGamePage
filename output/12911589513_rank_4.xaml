@@ -68,84 +68,6 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/eRh2hFbjd2v4Emm__rUC_A==/109951172374222060.jpg"/>
-            </StackPanel>
-        </Grid>
-        <StackPanel Orientation="Horizontal">
-            <Border VerticalAlignment="Center"
-        Height="20"
-        Width="45"
-        Margin="0,5,5,-1"
-        Background="#7b859a"
-        CornerRadius="7">
-    <StackPanel HorizontalAlignment="Center"
-                Margin="3"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-        <TextBlock FontSize="10"
-                   Foreground="{DynamicResource ColorBrush8}"
-                   VerticalAlignment="Bottom"
-                   Text="No."/>
-        <TextBlock FontSize="15"
-            Margin="0,0,0,-2"
-                   Foreground="{DynamicResource ColorBrush8}"
-                   VerticalAlignment="Bottom"
-                   Text="61"/>
-    </StackPanel>
-</Border>
-            <TextBlock Margin="0,5,0,0"
-                       FontSize="17"
-                       FontWeight="Bold"
-                       Text="Loro Piana"
-                       ToolTip="Loro Piana"/>
-        </StackPanel>
-        <TextBlock Margin="0,2,0,0"
-                   FontSize="12"
-                   Text="Reg"
-                   Height="14"
-                   ToolTip="Reg"/>
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,2,0,0">
-            <local:MyButton
-                Margin="1,0,1,0"
-                Height="18"
-                Width="37"
-                Text="查看"
-                EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3324008986"/>
-            <local:MyButton
-                Visibility="Visible"
-                Margin="1,0,1,0"
-                Height="18"
-                Width="50"
-                ToolTip="呼出本地网易云音乐打开！"
-                Text="客户端"
-                EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3324008986&amp;type=song"/>
-            <TextBlock Margin="1,0"
-                       VerticalAlignment="Center"
-                       FontSize="12"
-                       Text="Loro Piana"
-                       ToolTip="Loro Piana"/>
-        </StackPanel>
-    </StackPanel>
-    <StackPanel VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-                Margin="-7,-7,-7,0">
-                
-    </StackPanel>
-</local:MyCard>
-<local:MyCard Margin="4"
-              Width="163">
-    <StackPanel Margin="10">
-        <Grid Height="143"
-              Width="143">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                <local:MyImage
                     Source="https://p3.music.126.net/JnPXimuUDLvzTh5zZfnOkg==/109951172596816504.jpg"/>
             </StackPanel>
         </Grid>
@@ -168,7 +90,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="62"/>
+                   Text="61"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -246,7 +168,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="63"/>
+                   Text="62"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -302,7 +224,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/iw1Bb4kHSmdgkIRtt-R_Eg==/109951173542942116.jpg"/>
+                    Source="https://p4.music.126.net/iw1Bb4kHSmdgkIRtt-R_Eg==/109951173542942116.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -324,7 +246,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="64"/>
+                   Text="63"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -380,7 +302,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/Zaq8OoxyqJBgqu6hOU5Opg==/109951173505414342.jpg"/>
+                    Source="https://p4.music.126.net/Zaq8OoxyqJBgqu6hOU5Opg==/109951173505414342.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -402,7 +324,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="65"/>
+                   Text="64"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -480,7 +402,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="66"/>
+                   Text="65"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -558,7 +480,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="67"/>
+                   Text="66"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -614,7 +536,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/vMXjp1_WRaO1FP1MRVaGxw==/109951173512018016.jpg"/>
+                    Source="https://p3.music.126.net/vMXjp1_WRaO1FP1MRVaGxw==/109951173512018016.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -636,7 +558,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="68"/>
+                   Text="67"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -692,7 +614,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/l0hum4d0UIeysBlqAr-MTw==/109951172996425961.jpg"/>
+                    Source="https://p4.music.126.net/l0hum4d0UIeysBlqAr-MTw==/109951172996425961.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -714,7 +636,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="69"/>
+                   Text="68"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -792,7 +714,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="70"/>
+                   Text="69"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -870,7 +792,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="71"/>
+                   Text="70"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -948,7 +870,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="72"/>
+                   Text="71"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1004,7 +926,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/BuHDppeuoRlo-4JNjuSUDA==/109951172973536342.jpg"/>
+                    Source="https://p4.music.126.net/BuHDppeuoRlo-4JNjuSUDA==/109951172973536342.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1026,7 +948,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="73"/>
+                   Text="72"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1082,7 +1004,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/7-7BQnroDbkXiP8ANdfnvA==/109951173538770970.jpg"/>
+                    Source="https://p4.music.126.net/7-7BQnroDbkXiP8ANdfnvA==/109951173538770970.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1104,7 +1026,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="74"/>
+                   Text="73"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1160,7 +1082,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/DRvV1vLpxwOxdtjsyyl8lQ==/109951173544334166.jpg"/>
+                    Source="https://p3.music.126.net/DRvV1vLpxwOxdtjsyyl8lQ==/109951173544334166.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1182,7 +1104,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="75"/>
+                   Text="74"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1260,7 +1182,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="76"/>
+                   Text="75"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1338,7 +1260,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="77"/>
+                   Text="76"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1416,7 +1338,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="78"/>
+                   Text="77"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1472,7 +1394,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/zyTOdpCtV_3m-mjBFyigWw==/109951173521775543.jpg"/>
+                    Source="https://p4.music.126.net/zyTOdpCtV_3m-mjBFyigWw==/109951173521775543.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1494,7 +1416,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="79"/>
+                   Text="78"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1550,7 +1472,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/0npRzTF8xPdSKSO4XLYWzw==/109951165255562622.jpg"/>
+                    Source="https://p4.music.126.net/0npRzTF8xPdSKSO4XLYWzw==/109951165255562622.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1572,7 +1494,7 @@
             Margin="0,0,0,-2"
                    Foreground="{DynamicResource ColorBrush8}"
                    VerticalAlignment="Bottom"
-                   Text="80"/>
+                   Text="79"/>
     </StackPanel>
 </Border>
             <TextBlock Margin="0,5,0,0"
@@ -1609,6 +1531,84 @@
                        FontSize="12"
                        Text="祭"
                        ToolTip="祭"/>
+        </StackPanel>
+    </StackPanel>
+    <StackPanel VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="-7,-7,-7,0">
+                
+    </StackPanel>
+</local:MyCard>
+<local:MyCard Margin="4"
+              Width="163">
+    <StackPanel Margin="10">
+        <Grid Height="143"
+              Width="143">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <local:MyImage
+                    Source="https://p3.music.126.net/KUIfVxTRQMpGv7EtF9oe_g==/109951170000060742.jpg"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <Border VerticalAlignment="Center"
+        Height="20"
+        Width="45"
+        Margin="0,5,5,-1"
+        Background="#7b859a"
+        CornerRadius="7">
+    <StackPanel HorizontalAlignment="Center"
+                Margin="3"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+        <TextBlock FontSize="10"
+                   Foreground="{DynamicResource ColorBrush8}"
+                   VerticalAlignment="Bottom"
+                   Text="No."/>
+        <TextBlock FontSize="15"
+            Margin="0,0,0,-2"
+                   Foreground="{DynamicResource ColorBrush8}"
+                   VerticalAlignment="Bottom"
+                   Text="80"/>
+    </StackPanel>
+</Border>
+            <TextBlock Margin="0,5,0,0"
+                       FontSize="17"
+                       FontWeight="Bold"
+                       Text="江河万古"
+                       ToolTip="江河万古"/>
+        </StackPanel>
+        <TextBlock Margin="0,2,0,0"
+                   FontSize="12"
+                   Text="小招娘"
+                   Height="14"
+                   ToolTip="小招娘"/>
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,2,0,0">
+            <local:MyButton
+                Margin="1,0,1,0"
+                Height="18"
+                Width="37"
+                Text="查看"
+                EventType="打开网页"
+                EventData="https://music.163.com/#/song?id=2631887149"/>
+            <local:MyButton
+                Visibility="Visible"
+                Margin="1,0,1,0"
+                Height="18"
+                Width="50"
+                ToolTip="呼出本地网易云音乐打开！"
+                Text="客户端"
+                EventType="打开网页"
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2631887149&amp;type=song"/>
+            <TextBlock Margin="1,0"
+                       VerticalAlignment="Center"
+                       FontSize="12"
+                       Text="如何把上下五千年都写进一首歌里？【超燃国风原创曲】"
+                       ToolTip="如何把上下五千年都写进一首歌里？【超燃国风原创曲】"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
