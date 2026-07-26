@@ -20,6 +20,7 @@ def replaces(template, data):
 CATEGORY = "specials"
 LIMIT = 8
 LANGUAGE = "schinese"
+COLUMNS = 4  # 每行显示数量，可改为 3 或 5
 
 CATEGORY_LABEL = {
     "specials": "特惠游戏",
@@ -49,8 +50,14 @@ def main():
     }
     label_xaml = replaces(label_template, label_data)
 
+    # 构建 Grid 列定义
+    grid_columns = ""
+    for i in range(COLUMNS):
+        grid_columns += f'<ColumnDefinition Width="1*" />\n        '
+    
+    # 构建游戏卡片
     game_items = []
-    for game in games:
+    for index, game in enumerate(games):
         if game["discounted"] and game["final_price"] is not None:
             price_info = f"¥{game['final_price']:.2f} (原价 ¥{game['original_price']:.2f}，-{game['discount_percent']}%)"
         elif game["final_price"] is not None:
@@ -65,15 +72,23 @@ def main():
             "img": game["header_image"],
             "name": game["name"],
             "price": price_info,
-            "url": store_url
+            "url": store_url,
+            "column": index % COLUMNS
         }
         item_xaml = replaces(game_template, data)
         game_items.append(item_xaml)
 
-    games_block = "\n".join(game_items)
-    final_xaml = header + "\n" + label_xaml + "\n" + games_block + "\n" + footer
+    games_block = "\n    ".join(game_items)
+    
+    # 构建带 Grid 的完整游戏列表
+    games_grid = f"""    <Grid>
+        <Grid.ColumnDefinitions>
+        {grid_columns}</Grid.ColumnDefinitions>
+        {games_block}
+    </Grid>"""
 
-    # 直接输出到运行目录（当前工作目录），文件名为 SteamPage.xaml
+    final_xaml = header + "\n" + label_xaml + "\n" + games_grid + "\n" + footer
+
     output_path = "SteamPage.xaml"
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_xaml)
