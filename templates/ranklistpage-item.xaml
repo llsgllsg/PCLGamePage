@@ -1,9 +1,0 @@
-<local:MyListItem
-    Margin="10,2"
-    Logo="pack://application:,,,/images/Blocks/Fabric.png"
-    Title="{name} #{num}"
-    Info="{name}"
-    ToolTip="{description}"
-    EventType="打开帮助"
-    Type="Clickable"
-    EventData="https://cloudmusic.p.kaphia.qzz.io/{mrank}_rank_1.json"/>
