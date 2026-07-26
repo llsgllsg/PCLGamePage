@@ -2,9 +2,8 @@ name: Update Steam Game Recommendations
 
 on:
   schedule:
-    # 每天 UTC 时间 0:00 和 12:00 运行（即北京时间 8:00 和 20:00）
     - cron: '0 0,12 * * *'
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
 
 jobs:
   update:
@@ -20,18 +19,16 @@ jobs:
           python-version: '3.11'
 
       - name: 安装依赖
-        run: |
-          pip install requests
+        run: pip install requests
 
       - name: 运行脚本生成 XAML
-        run: |
-          python main.py
+        run: python main.py
 
-      - name: 检查生成的文件
+      - name: 检查生成的文件（位于 output/ 目录）
         run: |
-          if [ -f "Custom.xaml" ]; then
+          if [ -f "output/Steamgame.xaml" ]; then
             echo "文件已生成"
-            ls -la Custom.xaml
+            ls -la output/Steamgame.xaml
           else
             echo "文件未生成，请检查脚本"
             exit 1
@@ -51,7 +48,7 @@ jobs:
           for i in 1 2; do
             echo "尝试上传 XAML (第 $i 次)"
             if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
-              Custom.xaml \
+              output/Steamgame.xaml \
               ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
               echo "XAML 上传成功"
               exit 0
