@@ -1,7 +1,0 @@
-            <local:MyListItem Margin="5,2,5,8" Width="200"
-                              Logo="{img}"
-                              Title="{name}"
-                              Info="{price}"
-                              EventType="打开网页"
-                              EventData="{url}"
-                              Type="Clickable" />
