@@ -73,10 +73,8 @@ def main():
     games_block = "\n".join(game_items)
     final_xaml = header + "\n" + label_xaml + "\n" + games_block + "\n" + footer
 
-    output_dir = "output"
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-    output_path = os.path.join(output_dir, "Steamgame.xaml")
+    # 直接输出到运行目录（当前工作目录），文件名为 SteamPage.xaml
+    output_path = "SteamPage.xaml"
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_xaml)
 
