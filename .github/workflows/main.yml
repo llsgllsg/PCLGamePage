@@ -22,7 +22,7 @@ jobs:
         run: pip install requests
 
       - name: 运行脚本生成 XAML
-        run: python mcbug_stats.py
+        run: python main.py
 
       - name: 检查生成的文件
         run: |
