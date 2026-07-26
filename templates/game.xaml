@@ -1,6 +1,10 @@
-            <local:MyListItem Margin="5,2,5,8" Width="200"
-                              Logo="{img}"
-                              Title="{name}"
+<local:MyImage Height="50" HorizontalAlignment="Center" Source="{img}" />
+<TextBlock TextWrapping="Wrap" Margin="0,0,0,0"
+                    Text="{name}" />
+
+<local:MyListItem Margin="5,2,5,8" Width="200"
+                              Logo="pack://application:,,,/images/Blocks/CommandBlock.png"
+                              Title="点我打开"
                               Info="{price}"
                               EventType="打开网页"
                               EventData="{url}"
