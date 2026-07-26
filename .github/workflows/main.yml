@@ -48,7 +48,7 @@ jobs:
           for i in 1 2; do
             echo "尝试上传 XAML (第 $i 次)"
             if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
-                MCBugStats.xaml \
+                SteamPage.xaml \
                 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
               echo "XAML 上传成功"
               exit 0
