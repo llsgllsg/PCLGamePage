@@ -1,0 +1,72 @@
+name: Update Steam Game Recommendations
+
+on:
+  schedule:
+    # 每天 UTC 时间 0:00 和 12:00 运行（即北京时间 8:00 和 20:00）
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: |
+          pip install requests
+
+      - name: 运行脚本生成 XAML
+        run: |
+          python main.py
+
+      - name: 检查生成的文件
+        run: |
+          if [ -f "Custom.xaml" ]; then
+            echo "文件已生成"
+            ls -la Custom.xaml
+          else
+            echo "文件未生成，请检查脚本"
+            exit 1
+          fi
+
+      - name: 安装 sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: 确保远程目录存在
+        run: |
+          sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
+            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+            "mkdir -p ${{ secrets.SERVER_PATH }}"
+
+      - name: 上传 XAML 文件
+        run: |
+          for i in 1 2; do
+            echo "尝试上传 XAML (第 $i 次)"
+            if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
+              Custom.xaml \
+              ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
+              echo "XAML 上传成功"
+              exit 0
+            else
+              echo "上传失败，等待重试..."
+              sleep 5
+            fi
+          done
+          echo "上传失败，放弃"
+          exit 1
+
+      - name: 在远程创建/覆盖版本号文件
+        run: |
+          TIMESTAMP=$(date -u +%s)
+          sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
+            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/Custom.xaml.ini"
+          echo "版本号已更新: $TIMESTAMP"
