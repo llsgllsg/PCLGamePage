@@ -1,4 +1,5 @@
 <local:MyCard Title="{name}" Margin="0,0,0,15" CanSwap="False" IsSwapped="False">
+<StackPanel Margin="25,40,23,15">
 <local:MyImage Height="50" HorizontalAlignment="Center" Source="{img}" />
 <local:MyListItem Margin="0,0,0,0" Width="200"
                               Logo="pack://application:,,,/images/Blocks/CommandBlock.png"
@@ -7,4 +8,5 @@
                               EventType="打开网页"
                               EventData="{url}"
                               Type="Clickable" />
+ </StackPanel>
 </local:MyCard>
