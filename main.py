@@ -76,7 +76,7 @@ def main():
     output_dir = "output"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    output_path = os.path.join(output_dir, "Custom.xaml")
+    output_path = os.path.join(output_dir, "Steamgame.xaml")
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_xaml)
 
