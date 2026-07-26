@@ -59,7 +59,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/rqnwB_dV2sVZg4XpqIUGXg==/109951170646743447.jpg"/>
+                    Source="https://p4.music.126.net/NdMOsM9qJKJLVTFHkRrccA==/109951170461213135.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -87,14 +87,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="トンデモワンダーズ"
-                       ToolTip="トンデモワンダーズ"/>
+                       Text="テレパシ"
+                       ToolTip="テレパシ"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="鳳えむ"
+                   Text="DECO*27/初音ミク"
                    Height="14"
-                   ToolTip="鳳えむ"/>
+                   ToolTip="DECO*27/初音ミク"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -103,7 +103,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=2623442902"/>
+                EventData="https://music.163.com/#/song?id=2672829798"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -112,12 +112,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2623442902&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2672829798&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="プロジェクトセカイ カラフルステージ！ feat. 初音ミク アナザーボーカルアルバム ワンダーランズ×ショウタイム"
-                       ToolTip="プロジェクトセカイ カラフルステージ！ feat. 初音ミク アナザーボーカルアルバム ワンダーランズ×ショウタイム"/>
+                       Text="テレパシ"
+                       ToolTip="テレパシ"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -137,7 +137,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/4nzbf_yYXwJXGhCYnstAIA==/109951173007563644.jpg"/>
+                    Source="https://p3.music.126.net/kDH1aB_GUdffoZVklqZoXA==/109951171981160887.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -165,14 +165,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="非常规波动"
-                       ToolTip="非常规波动"/>
+                       Text="跑！"
+                       ToolTip="跑！"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="FREEFALL/星尘/诗岸"
+                   Text="Mara/乐正绫"
                    Height="14"
-                   ToolTip="FREEFALL/星尘/诗岸"/>
+                   ToolTip="Mara/乐正绫"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -181,7 +181,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3367242187"/>
+                EventData="https://music.163.com/#/song?id=2743813580"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -190,12 +190,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3367242187&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2743813580&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="Out of the World"
-                       ToolTip="Out of the World"/>
+                       Text="跑！"
+                       ToolTip="跑！"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -215,7 +215,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/qGHVqCaUIouwCae5Err_rA==/109951169040658053.jpg"/>
+                    Source="https://p4.music.126.net/OInY-6tA6XO_scXv5u-7QA==/109951173437237808.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -243,14 +243,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="はぐ (feat. 初音ミク &amp; 可不)"
-                       ToolTip="はぐ (feat. 初音ミク &amp; 可不)"/>
+                       Text="失败者残酷指南"
+                       ToolTip="失败者残酷指南"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="MIMI/初音ミク/可不"
+                   Text="未命名_nameless/洛天依"
                    Height="14"
-                   ToolTip="MIMI/初音ミク/可不"/>
+                   ToolTip="未命名_nameless/洛天依"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -259,7 +259,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=2097828677"/>
+                EventData="https://music.163.com/#/song?id=3396415223"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -268,12 +268,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2097828677&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3396415223&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="はぐ (feat. 初音ミク &amp; 可不)"
-                       ToolTip="はぐ (feat. 初音ミク &amp; 可不)"/>
+                       Text="失败者"
+                       ToolTip="失败者"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -293,7 +293,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/YYnZ3fsFnZart5bqlo8huQ==/109951172958358551.jpg"/>
+                    Source="https://p3.music.126.net/pGAuRsgyVYgB0LDduFZ7ew==/109951172726998088.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -321,14 +321,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="GIFTED (天才)/初音ミク"
-                       ToolTip="GIFTED (天才)/初音ミク"/>
+                       Text="山羊仮面"
+                       ToolTip="山羊仮面"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="Rei"
+                   Text="Udjat乌加"
                    Height="14"
-                   ToolTip="Rei"/>
+                   ToolTip="Udjat乌加"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -337,7 +337,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3366473862"/>
+                EventData="https://music.163.com/#/song?id=3348682177"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -346,12 +346,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3366473862&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3348682177&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="随便搬点"
-                       ToolTip="随便搬点"/>
+                       Text="山羊假面"
+                       ToolTip="山羊假面"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -371,7 +371,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/aFLUJ3NIsX0dDXkmY6QiNw==/109951173508652602.jpg"/>
+                    Source="https://p4.music.126.net/G4uuyOWbM2pfhTkBfw92Rg==/109951173229032801.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -399,14 +399,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="ピンク作戦"
-                       ToolTip="ピンク作戦"/>
+                       Text="魔法少女尸检报告 feat. 重音テト（一水ICE Remix）"
+                       ToolTip="魔法少女尸检报告 feat. 重音テト（一水ICE Remix）"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="Green_Popo/重音テト/初音ミク/巡音ルカ"
+                   Text="一水ICE/JESSIE/重音テト"
                    Height="14"
-                   ToolTip="Green_Popo/重音テト/初音ミク/巡音ルカ"/>
+                   ToolTip="一水ICE/JESSIE/重音テト"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -415,7 +415,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3401813289"/>
+                EventData="https://music.163.com/#/song?id=3382582081"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -424,12 +424,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3401813289&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3382582081&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="VOCALOID: WAR I"
-                       ToolTip="VOCALOID: WAR I"/>
+                       Text="魔法少女尸检报告 feat. 重音テト（一水ICE Remix）"
+                       ToolTip="魔法少女尸检报告 feat. 重音テト（一水ICE Remix）"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -449,7 +449,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/vgu8jU7OqHE1ocIMGvbWfQ==/109951173385574706.jpg"/>
+                    Source="https://p4.music.126.net/2x7mue_zhEZ9QAPERv36fw==/109951171456772402.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -477,14 +477,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="命运在手心（feat.初音ミク&amp;洛天依）"
-                       ToolTip="命运在手心（feat.初音ミク&amp;洛天依）"/>
+                       Text="水仙人格混乱"
+                       ToolTip="水仙人格混乱"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="Randy Bennett/初音ミク/洛天依Official"
+                   Text="海鲜面/洛天依"
                    Height="14"
-                   ToolTip="Randy Bennett/初音ミク/洛天依Official"/>
+                   ToolTip="海鲜面/洛天依"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -493,7 +493,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3393773867"/>
+                EventData="https://music.163.com/#/song?id=3399132174"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -502,12 +502,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3393773867&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3399132174&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="命运在手心"
-                       ToolTip="命运在手心"/>
+                       Text="应激反应"
+                       ToolTip="应激反应"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -527,7 +527,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/Ah5VPWlxcSb84xYncaHj8Q==/109951170646749270.jpg"/>
+                    Source="https://p4.music.126.net/_LaIl5hSZIHRnm7HHPa0GQ==/109951171896117667.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -555,14 +555,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="Just Be Friends"
-                       ToolTip="Just Be Friends"/>
+                       Text="存在証明論"
+                       ToolTip="存在証明論"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="白石杏"
+                   Text="Minamikaze"
                    Height="14"
-                   ToolTip="白石杏"/>
+                   ToolTip="Minamikaze"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -571,7 +571,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=2623131382"/>
+                EventData="https://music.163.com/#/song?id=2737788273"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -580,12 +580,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2623131382&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2737788273&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="プロジェクトセカイ カラフルステージ！ feat. 初音ミク　アナザーボーカルアルバム Vivid BAD SQUAD"
-                       ToolTip="プロジェクトセカイ カラフルステージ！ feat. 初音ミク　アナザーボーカルアルバム Vivid BAD SQUAD"/>
+                       Text="存在証明論"
+                       ToolTip="存在証明論"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -605,7 +605,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/g05aPRC689NV-Ivn6q0OWQ==/109951172982559323.jpg"/>
+                    Source="https://p4.music.126.net/f781kOSlh2prOP23V2LIBg==/109951173150876464.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -633,14 +633,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="未完画稿(Instrumental)"
-                       ToolTip="未完画稿(Instrumental)"/>
+                       Text="破茧成光 Pt.2"
+                       ToolTip="破茧成光 Pt.2"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="VinuC_G/Rev3rie Records/存在しない時刻、ヘッドフォンで"
+                   Text="见过夏天P/洛天依"
                    Height="14"
-                   ToolTip="VinuC_G/Rev3rie Records/存在しない時刻、ヘッドフォンで"/>
+                   ToolTip="见过夏天P/洛天依"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -649,7 +649,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3365916374"/>
+                EventData="https://music.163.com/#/song?id=3376894533"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -658,12 +658,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3365916374&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3376894533&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="未完画稿"
-                       ToolTip="未完画稿"/>
+                       Text="Aldebaran"
+                       ToolTip="Aldebaran"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -683,7 +683,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/_kLIW7tsQvFrvjbVmhcbnw==/109951168541702540.jpg"/>
+                    Source="https://p4.music.126.net/NJqouoVbbX-mWcYu5KfcVQ==/109951172585644050.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -711,14 +711,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="有兽焉 (《有兽焉》动画主题曲)"
-                       ToolTip="有兽焉 (《有兽焉》动画主题曲)"/>
+                       Text="スポットレイト"
+                       ToolTip="スポットレイト"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="洛天依Official"
+                   Text="稲葉曇/歌愛ユキ"
                    Height="14"
-                   ToolTip="洛天依Official"/>
+                   ToolTip="稲葉曇/歌愛ユキ"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -727,7 +727,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=2038314391"/>
+                EventData="https://music.163.com/#/song?id=3339111957"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -736,34 +736,18 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2038314391&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3339111957&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="有兽焉 (《有兽焉》动画主题曲)"
-                       ToolTip="有兽焉 (《有兽焉》动画主题曲)"/>
+                       Text="スポットレイト"
+                       ToolTip="スポットレイト"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Margin="-7,-7,-7,0">
-                <Border Height="25"
-        Margin="1"
-        Background="#e02e66"
-        CornerRadius="7"
-        HorizontalAlignment="Left"
-        ToolTip="此歌曲需要VIP/SVIP">
-    <StackPanel HorizontalAlignment="Center"
-                Margin="10,3,10,3"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-        <TextBlock FontSize="18"
-                   Margin="0,0,2,-1"
-                   Foreground="{DynamicResource ColorBrush8}"
-                   VerticalAlignment="Bottom"
-                   Text="VIP"/>
-    </StackPanel>
-</Border>
+                
     </StackPanel>
 </local:MyCard>
 <local:MyCard Margin="4"
@@ -777,7 +761,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/FAFsOl8kfaQVbnO2_nlbCw==/109951172907829257.jpg"/>
+                    Source="https://p4.music.126.net/ZF1mVwVYTCcGl5YMzilsJw==/109951172886962725.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -805,14 +789,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="モザイクロール (Reloaded) -Hello ver.- "
-                       ToolTip="モザイクロール (Reloaded) -Hello ver.- "/>
+                       Text="自由落体"
+                       ToolTip="自由落体"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="DECO*27"
+                   Text="FREEFALL/诗岸"
                    Height="14"
-                   ToolTip="DECO*27"/>
+                   ToolTip="FREEFALL/诗岸"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -821,7 +805,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3360770396"/>
+                EventData="https://music.163.com/#/song?id=3359231510"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -830,12 +814,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3360770396&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3359231510&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="デコミク LIVE starring 初音ミク『Hello』"
-                       ToolTip="デコミク LIVE starring 初音ミク『Hello』"/>
+                       Text="自由落体"
+                       ToolTip="自由落体"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -855,7 +839,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/-JXRtGXqTI0ro7aaRE6YOg==/109951173226252207.jpg"/>
+                    Source="https://p3.music.126.net/GPlsonsHSwtG8GSDTMfeuA==/109951169410333542.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -883,14 +867,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="脉"
-                       ToolTip="脉"/>
+                       Text="ヒットメーカー (feat. 重音テト)"
+                       ToolTip="ヒットメーカー (feat. 重音テト)"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="宵夜Mpa"
+                   Text="夜未アガリ/重音テト"
                    Height="14"
-                   ToolTip="宵夜Mpa"/>
+                   ToolTip="夜未アガリ/重音テト"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -899,7 +883,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3382387992"/>
+                EventData="https://music.163.com/#/song?id=2135490449"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -908,12 +892,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3382387992&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2135490449&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="我的流动"
-                       ToolTip="我的流动"/>
+                       Text="ヒットメーカー"
+                       ToolTip="ヒットメーカー"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -933,7 +917,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/RwvH_XDhZXQP0maegMeSJQ==/109951173498223316.jpg"/>
+                    Source="https://p3.music.126.net/SRX4_oxO43X_fpD5vdRX-Q==/109951170934896694.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -961,14 +945,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="愛しいままで、おやすみなさい"
-                       ToolTip="愛しいままで、おやすみなさい"/>
+                       Text="臙脂 ft. 重音テト"
+                       ToolTip="臙脂 ft. 重音テト"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="綴。/GUMI"
+                   Text="bk/重音テト"
                    Height="14"
-                   ToolTip="綴。/GUMI"/>
+                   ToolTip="bk/重音テト"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -977,7 +961,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3401063653"/>
+                EventData="https://music.163.com/#/song?id=2700788167"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -986,12 +970,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3401063653&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2700788167&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="愛しいままで、おやすみなさい"
-                       ToolTip="愛しいままで、おやすみなさい"/>
+                       Text="臙脂 ft. 重音テト"
+                       ToolTip="臙脂 ft. 重音テト"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -1011,7 +995,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/302YFp76Mk6ocCT1A4972w==/109951173224248459.jpg"/>
+                    Source="https://p3.music.126.net/NygjDkFmxeWrQX8nkpqwsA==/109951173290341371.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1039,14 +1023,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="Title"
-                       ToolTip="Title"/>
+                       Text="是法棍王来了！（feat.重音テト）"
+                       ToolTip="是法棍王来了！（feat.重音テト）"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="なちぴ"
+                   Text="易耀申/重音テト"
                    Height="14"
-                   ToolTip="なちぴ"/>
+                   ToolTip="易耀申/重音テト"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1055,7 +1039,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3358796829"/>
+                EventData="https://music.163.com/#/song?id=3387065843"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1064,12 +1048,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3358796829&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3387065843&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="Title"
-                       ToolTip="Title"/>
+                       Text="是谁来了?"
+                       ToolTip="是谁来了?"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -1089,7 +1073,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/ssdvPWYfmjFPFceeDd4X7w==/109951168567590905.jpg"/>
+                    Source="https://p3.music.126.net/Gr4uK7UAQOpi6Ocpk8gDrQ==/109951166396172607.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1117,14 +1101,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="フォニイ"
-                       ToolTip="フォニイ"/>
+                       Text="神っぽいな"
+                       ToolTip="神っぽいな"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="可不/ツミキ"
+                   Text="ピノキオピー/初音ミク"
                    Height="14"
-                   ToolTip="可不/ツミキ"/>
+                   ToolTip="ピノキオピー/初音ミク"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1133,7 +1117,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=1900172235"/>
+                EventData="https://music.163.com/#/song?id=1878313261"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1142,34 +1126,18 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=1900172235&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=1878313261&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="KAF+YOU KAFU COMPILATION ALBUM シンメトリー"
-                       ToolTip="KAF+YOU KAFU COMPILATION ALBUM シンメトリー"/>
+                       Text="神っぽいな"
+                       ToolTip="神っぽいな"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Margin="-7,-7,-7,0">
-                <Border Height="25"
-        Margin="1"
-        Background="#e02e66"
-        CornerRadius="7"
-        HorizontalAlignment="Left"
-        ToolTip="此歌曲需要VIP/SVIP">
-    <StackPanel HorizontalAlignment="Center"
-                Margin="10,3,10,3"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-        <TextBlock FontSize="18"
-                   Margin="0,0,2,-1"
-                   Foreground="{DynamicResource ColorBrush8}"
-                   VerticalAlignment="Bottom"
-                   Text="VIP"/>
-    </StackPanel>
-</Border>
+                
     </StackPanel>
 </local:MyCard>
 <local:MyCard Margin="4"
@@ -1183,7 +1151,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/aI_BXU_wPpBy4fQZm8FcAA==/109951169687932138.jpg"/>
+                    Source="https://p3.music.126.net/AzWEWZAx7CQRdhFdzcnG6Q==/109951172167177111.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1211,14 +1179,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="黄金数 (2024 ver.)"
-                       ToolTip="黄金数 (2024 ver.)"/>
+                       Text="噛み合わない愛(feat.初音ミク)"
+                       ToolTip="噛み合わない愛(feat.初音ミク)"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="いよわ"
+                   Text="木虎_はると"
                    Height="14"
-                   ToolTip="いよわ"/>
+                   ToolTip="木虎_はると"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1227,7 +1195,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=2166682725"/>
+                EventData="https://music.163.com/#/song?id=2756757943"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1236,12 +1204,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2166682725&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2756757943&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="映画、陽だまり、卒業式"
-                       ToolTip="映画、陽だまり、卒業式"/>
+                       Text="噛み合わない愛"
+                       ToolTip="噛み合わない愛"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -1261,7 +1229,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/1qPhA-RxWl3TKHHFFHK86Q==/109951165704532813.jpg"/>
+                    Source="https://p4.music.126.net/NmKI8BheKaJ9VTxGtOeUhg==/109951172614490611.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1289,14 +1257,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="ぼくらはみんな意味不明"
-                       ToolTip="ぼくらはみんな意味不明"/>
+                       Text="再见了，我以恨意为燃料的人生..."
+                       ToolTip="再见了，我以恨意为燃料的人生..."/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="ピノキオピー/初音ミク"
+                   Text="Calia-林焰/星尘"
                    Height="14"
-                   ToolTip="ピノキオピー/初音ミク"/>
+                   ToolTip="Calia-林焰/星尘"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1305,7 +1273,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=1818504094"/>
+                EventData="https://music.163.com/#/song?id=3340764179"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1314,12 +1282,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=1818504094&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3340764179&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="PINOCCHIOP BEST ALBUM 2009-2020 寿"
-                       ToolTip="PINOCCHIOP BEST ALBUM 2009-2020 寿"/>
+                       Text="再见了，我以恨意为燃料的人生..."
+                       ToolTip="再见了，我以恨意为燃料的人生..."/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -1339,7 +1307,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/96ybPtFF7RoMCOb4fRPV9A==/109951170632856402.jpg"/>
+                    Source="https://p4.music.126.net/R1GHftOXkMgB7vQ_vCNsGQ==/109951170514009059.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1367,14 +1335,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="雑魚"
-                       ToolTip="雑魚"/>
+                       Text="匙ノ咒 (feat. 初音ミク)"
+                       ToolTip="匙ノ咒 (feat. 初音ミク)"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="柊マグネタイト/亞北ネル"
+                   Text="r-906/初音ミク"
                    Height="14"
-                   ToolTip="柊マグネタイト/亞北ネル"/>
+                   ToolTip="r-906/初音ミク"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1383,7 +1351,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=2686854469"/>
+                EventData="https://music.163.com/#/song?id=2678245971"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1392,34 +1360,18 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2686854469&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2678245971&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="雑魚"
-                       ToolTip="雑魚"/>
+                       Text="匙ノ咒 (feat. 初音ミク)"
+                       ToolTip="匙ノ咒 (feat. 初音ミク)"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Margin="-7,-7,-7,0">
-                <Border Height="25"
-        Margin="1"
-        Background="#e02e66"
-        CornerRadius="7"
-        HorizontalAlignment="Left"
-        ToolTip="此歌曲需要VIP/SVIP">
-    <StackPanel HorizontalAlignment="Center"
-                Margin="10,3,10,3"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-        <TextBlock FontSize="18"
-                   Margin="0,0,2,-1"
-                   Foreground="{DynamicResource ColorBrush8}"
-                   VerticalAlignment="Bottom"
-                   Text="VIP"/>
-    </StackPanel>
-</Border>
+                
     </StackPanel>
 </local:MyCard>
 <local:MyCard Margin="4"
@@ -1433,7 +1385,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/rc62UcV0nqumsPxypPM4KA==/109951173259043008.jpg"/>
+                    Source="https://p3.music.126.net/08QYiALy-Hmm2efqr1Sr-g==/109951172815541067.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1461,14 +1413,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="好饿呀"
-                       ToolTip="好饿呀"/>
+                       Text="恰好你也喜欢"
+                       ToolTip="恰好你也喜欢"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="洛天依Official/冷惜月"
+                   Text="洛天依Official"
                    Height="14"
-                   ToolTip="洛天依Official/冷惜月"/>
+                   ToolTip="洛天依Official"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1477,7 +1429,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3384734246"/>
+                EventData="https://music.163.com/#/song?id=3354247625"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1486,34 +1438,18 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3384734246&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3354247625&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="好饿呀"
-                       ToolTip="好饿呀"/>
+                       Text="恰好你也喜欢"
+                       ToolTip="恰好你也喜欢"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Margin="-7,-7,-7,0">
-                <Border Height="25"
-        Margin="1"
-        Background="#e02e66"
-        CornerRadius="7"
-        HorizontalAlignment="Left"
-        ToolTip="此歌曲需要VIP/SVIP">
-    <StackPanel HorizontalAlignment="Center"
-                Margin="10,3,10,3"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-        <TextBlock FontSize="18"
-                   Margin="0,0,2,-1"
-                   Foreground="{DynamicResource ColorBrush8}"
-                   VerticalAlignment="Bottom"
-                   Text="VIP"/>
-    </StackPanel>
-</Border>
+                
     </StackPanel>
 </local:MyCard>
 <local:MyCard Margin="4"
@@ -1527,7 +1463,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p3.music.126.net/DT9AvmDgyQA3njUo0m2Z9w==/109951173178899480.jpg"/>
+                    Source="https://p4.music.126.net/2JyWuoks6NL1Gu1_4I0Uag==/109951172473409346.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1555,14 +1491,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="不再"
-                       ToolTip="不再"/>
+                       Text="病态主角观"
+                       ToolTip="病态主角观"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="Sakura_Rain/诗岸"
+                   Text="洛天依/4st"
                    Height="14"
-                   ToolTip="Sakura_Rain/诗岸"/>
+                   ToolTip="洛天依/4st"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1571,7 +1507,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3378732457"/>
+                EventData="https://music.163.com/#/song?id=2131661254"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1580,12 +1516,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3378732457&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=2131661254&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="昨日雨"
-                       ToolTip="昨日雨"/>
+                       Text="「BLACKMOON」企划"
+                       ToolTip="「BLACKMOON」企划"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
@@ -1605,7 +1541,7 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <local:MyImage
-                    Source="https://p4.music.126.net/9teRTUBzTA64N9gJ2MOEPg==/109951172927308363.jpg"/>
+                    Source="https://p4.music.126.net/6wvv_cDB6ilik93z5z3Vlg==/109951172763886968.jpg"/>
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">
@@ -1633,14 +1569,14 @@
             <TextBlock Margin="0,5,0,0"
                        FontSize="17"
                        FontWeight="Bold"
-                       Text="怪物之歌【中文填词】"
-                       ToolTip="怪物之歌【中文填词】"/>
+                       Text="火花道歉信"
+                       ToolTip="火花道歉信"/>
         </StackPanel>
         <TextBlock Margin="0,2,0,0"
                    FontSize="12"
-                   Text="星尘"
+                   Text="初音ミク"
                    Height="14"
-                   ToolTip="星尘"/>
+                   ToolTip="初音ミク"/>
         <StackPanel Orientation="Horizontal"
                     Margin="0,2,0,0">
             <local:MyButton
@@ -1649,7 +1585,7 @@
                 Width="37"
                 Text="查看"
                 EventType="打开网页"
-                EventData="https://music.163.com/#/song?id=3361349299"/>
+                EventData="https://music.163.com/#/song?id=3350996439"/>
             <local:MyButton
                 Visibility="Visible"
                 Margin="1,0,1,0"
@@ -1658,12 +1594,12 @@
                 ToolTip="呼出本地网易云音乐打开！"
                 Text="客户端"
                 EventType="打开网页"
-                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3361349299&amp;type=song"/>
+                EventData="https://p.kaphia.qzz.io/PCLCloudMusicPageRedirect?id=3350996439&amp;type=song"/>
             <TextBlock Margin="1,0"
                        VerticalAlignment="Center"
                        FontSize="12"
-                       Text="怪物之歌【中文填词】"
-                       ToolTip="怪物之歌【中文填词】"/>
+                       Text="火花道歉信"
+                       ToolTip="火花道歉信"/>
         </StackPanel>
     </StackPanel>
     <StackPanel VerticalAlignment="Top"
