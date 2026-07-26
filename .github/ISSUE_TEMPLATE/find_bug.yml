@@ -1,0 +1,32 @@
+name: 添加新发现的BUG
+description: 如标题所述
+title: "[BUG]"
+labels: ["BUG", "BUG-待确认"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前前注意：
+        1. PCL2版本为最新，且不是第三方构建版
+
+  - type: input
+    id: music_id
+    attributes:
+      label: BUG
+      description: 请提供复现流程
+      placeholder: 我先点了A又去了B就这样了
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我已确认该BUG可有效复现，且未在现有投票中重复提交。
+          required: true
+        - label: 我确保我使用的是最新版本的PCL2且不是非官方构建版
+          required: true
+    validations:
+      required: true
