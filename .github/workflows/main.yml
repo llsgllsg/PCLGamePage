@@ -37,19 +37,18 @@ jobs:
       - name: 安装 sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
+      - name: 设置 SSH 端口环境变量
+        run: echo "SSH_PORT=${{ secrets.SERVER_PORT || 22 }}" >> $GITHUB_ENV
+
       - name: 确保远程目录存在
         run: |
-          sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
-            "mkdir -p ${{ secrets.SERVER_PATH }}"
+          sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p $SSH_PORT ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "mkdir -p ${{ secrets.SERVER_PATH }}"
 
       - name: 上传 XAML 文件
         run: |
           for i in 1 2; do
             echo "尝试上传 XAML (第 $i 次)"
-            if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
-              output/Steamgame.xaml \
-              ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
+            if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -P $SSH_PORT output/Steamgame.xaml ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
               echo "XAML 上传成功"
               exit 0
             else
@@ -63,7 +62,5 @@ jobs:
       - name: 在远程创建/覆盖版本号文件
         run: |
           TIMESTAMP=$(date -u +%s)
-          sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
-            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/Custom.xaml.ini"
+          sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p $SSH_PORT ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/Steamgame.xaml.ini"
           echo "版本号已更新: $TIMESTAMP"
