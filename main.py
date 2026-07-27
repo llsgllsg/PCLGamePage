@@ -21,16 +21,17 @@ CATEGORY = "specials"
 LIMIT = 8
 LANGUAGE = "schinese"
 COLUMNS = 2  # 每行显示 2 列
-
+MIX_CATEGORIES = True  # ✅ 混合多个分类，大幅提升推荐丰富度
 CATEGORY_LABEL = {
     "specials": "特惠游戏",
     "top_sellers": "热销商品",
     "new_releases": "新品上架",
-    "coming_soon": "即将推出"
+    "coming_soon": "即将推出",
+    "mixed": "Steam 精选推荐"
 }
 
 def main():
-    games = get_steam_games_cached(CATEGORY, limit=LIMIT, language=LANGUAGE)
+    games = get_steam_games_cached(CATEGORY, limit=LIMIT, language=LANGUAGE, mix_categories=MIX_CATEGORIES)
     if not games:
         print("[错误] 未能获取到游戏数据，请检查网络或重试。")
         return
@@ -45,8 +46,14 @@ def main():
     with open(os.path.join(template_dir, "footer.xaml"), "r", encoding="utf-8") as f:
         footer = f.read()
 
+    # 混合模式使用专门的标签
+    if MIX_CATEGORIES:
+        label_text = CATEGORY_LABEL["mixed"]
+    else:
+        label_text = CATEGORY_LABEL.get(CATEGORY, "推荐游戏")
+        
     label_data = {
-        "label": CATEGORY_LABEL.get(CATEGORY, "推荐游戏")
+        "label": label_text
     }
     label_xaml = replaces(label_template, label_data)
 
@@ -74,7 +81,6 @@ def main():
             price_info = "免费"
 
         store_url = f"https://store.steampowered.com/app/{game['id']}"
-
         row = index // COLUMNS
         col = index % COLUMNS
 
@@ -107,6 +113,9 @@ def main():
         f.write(final_xaml)
 
     print(f"[成功] 已生成 {output_path}，共 {len(games)} 个游戏，{rows} 行 {COLUMNS} 列。")
+    print(f"[推荐列表]")
+    for i, g in enumerate(games, 1):
+        print(f"  {i}. {g['name']} (ID: {g['id']})")
 
 if __name__ == "__main__":
     main()
