@@ -1,2 +1,7 @@
-        <TextBlock Text="{label}" FontSize="20" FontWeight="Bold" Margin="0,8,0,12" Foreground="{DynamicResource ColorBrush2}" />
-        <WrapPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,8,0,12">
+            <TextBlock Text="{label}" FontSize="20" FontWeight="Bold" Foreground="{DynamicResource ColorBrush2}" VerticalAlignment="Center" />
+            <local:MyButton Margin="15,0,0,0" Height="28" Padding="15,0,15,0" FontSize="12"
+                            Text="刷新"
+                            EventType="刷新页面"
+                            EventData="-" />
+        </StackPanel>
