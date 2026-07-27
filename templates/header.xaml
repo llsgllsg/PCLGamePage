@@ -1,4 +1,4 @@
 <local:MyCard Title="Steam 游戏推荐" Margin="0,0,0,15" CanSwap="True" IsSwapped="False">
     <StackPanel Margin="25,30,23,15">
         <TextBlock TextWrapping="Wrap" Margin="0,0,0,12" FontSize="13" Foreground="{DynamicResource ColorBrush7}"
-                    Text="数据来自 Steam API" />
+                    Text="" />

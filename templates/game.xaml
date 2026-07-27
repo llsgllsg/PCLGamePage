@@ -1,12 +1,13 @@
-<local:MyCard Title="{name}" Margin="0,0,0,15" CanSwap="False" IsSwapped="False">
-<StackPanel Margin="25,40,23,15">
-<local:MyImage Height="50" HorizontalAlignment="Center" Source="{img}" />
-<local:MyListItem Margin="0,0,0,0" Width="200"
-                              Logo="pack://application:,,,/images/Blocks/CommandBlock.png"
-                              Title="点我打开"
-                              Info="{price}"
-                              EventType="打开网页"
-                              EventData="{url}"
-                              Type="Clickable" />
- </StackPanel>
+<local:MyCard Grid.Column="{column}" Margin="5,2,5,8" CanSwap="False" HasMouseAnimation="True">
+    <StackPanel>
+        <local:MyImage Source="{img}" Height="180" Stretch="UniformToFill" />
+        <TextBlock Text="{name}" FontWeight="Bold" Margin="10,8,10,2" TextWrapping="Wrap" MaxHeight="40" TextAlignment="Center" />
+        <TextBlock Text="{price}" FontSize="12" Foreground="{DynamicResource ColorBrush3}" Margin="10,0,10,4" TextAlignment="Center" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,4,0,8">
+            <local:MyButton Height="30" Padding="20,0,20,0"
+                            Text="查看商店"
+                            EventType="打开网页"
+                            EventData="{url}" />
+        </StackPanel>
+    </StackPanel>
 </local:MyCard>
