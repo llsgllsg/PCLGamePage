@@ -1,4 +1,4 @@
-name: Update MC Bug Stats
+name: Steam
 
 on:
   schedule:
@@ -65,5 +65,5 @@ jobs:
           TIMESTAMP=$(date -u +%s)
           sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
-            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/MCBugStats.xaml.ini"
+            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/SteamPage.xaml.ini"
           echo "版本号已更新: $TIMESTAMP"
