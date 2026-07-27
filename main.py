@@ -20,7 +20,7 @@ def replaces(template, data):
 CATEGORY = "specials"
 LIMIT = 8
 LANGUAGE = "schinese"
-COLUMNS = 2  # 每行显示 2 列
+COLUMNS = 1
 MIX_CATEGORIES = True
 CATEGORY_LABEL = {
     "specials": "特惠游戏",
