@@ -1,4 +1,4 @@
-<local:MyCard Grid.Column="{column}" Margin="5,2,5,8" CanSwap="False" HasMouseAnimation="True">
+<local:MyCard Grid.Row="{row}" Grid.Column="{column}" Margin="5,2,5,8" CanSwap="False" HasMouseAnimation="True">
     <StackPanel>
         <Border Height="180" ClipToBounds="True">
             <local:MyImage Source="{img}" Stretch="UniformToFill" />
