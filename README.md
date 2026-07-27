@@ -1,3 +1,2 @@
 ## 一个PCL2游戏推荐主页
-本仓库代码有AI参与
-看有没有有AI参与很简单，看看哪些部分用了超级像AI的注释就行
+订阅地址：https://g-fish.dpdns.org/download/SteamPage.xaml
