@@ -26,9 +26,9 @@ jobs:
 
       - name: 检查生成的文件
         run: |
-          if [ -f "SteamPage.xaml" ]; then
+          if [ -f "SteamPage2.xaml" ]; then
             echo "文件已生成"
-            ls -la SteamPage.xaml
+            ls -la SteamPage2.xaml
           else
             echo "文件未生成，请检查脚本"
             exit 1
@@ -48,7 +48,7 @@ jobs:
           for i in 1 2; do
             echo "尝试上传 XAML (第 $i 次)"
             if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
-                SteamPage.xaml \
+                SteamPage2.xaml \
                 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
               echo "XAML 上传成功"
               exit 0
@@ -65,5 +65,5 @@ jobs:
           TIMESTAMP=$(date -u +%s)
           sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
-            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/SteamPage.xaml.ini"
+            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/SteamPage2.xaml.ini"
           echo "版本号已更新: $TIMESTAMP"
