@@ -20,7 +20,7 @@ def replaces(template, data):
 CATEGORY = "specials"
 LIMIT = 8
 LANGUAGE = "schinese"
-COLUMNS = 2
+COLUMNS = 2  # 每行显示 2 列
 
 CATEGORY_LABEL = {
     "specials": "特惠游戏",
@@ -45,17 +45,24 @@ def main():
     with open(os.path.join(template_dir, "footer.xaml"), "r", encoding="utf-8") as f:
         footer = f.read()
 
-    # 处理 label，在标题后添加刷新按钮
     label_data = {
         "label": CATEGORY_LABEL.get(CATEGORY, "推荐游戏")
     }
     label_xaml = replaces(label_template, label_data)
 
+    # 计算行数
+    rows = (len(games) + COLUMNS - 1) // COLUMNS
+
     # 构建 Grid 列定义
     grid_columns = ""
     for i in range(COLUMNS):
         grid_columns += '<ColumnDefinition Width="1*" />\n        '
-    
+
+    # 构建 Grid 行定义
+    grid_rows = ""
+    for i in range(rows):
+        grid_rows += '<RowDefinition Height="Auto" />\n        '
+
     # 构建游戏卡片
     game_items = []
     for index, game in enumerate(games):
@@ -68,20 +75,26 @@ def main():
 
         store_url = f"https://store.steampowered.com/app/{game['id']}"
 
+        row = index // COLUMNS
+        col = index % COLUMNS
+
         data = {
             "id": game["id"],
             "img": game["header_image"],
             "name": game["name"],
             "price": price_info,
             "url": store_url,
-            "column": index % COLUMNS
+            "row": row,
+            "column": col
         }
         item_xaml = replaces(game_template, data)
         game_items.append(item_xaml)
 
     games_block = "\n    ".join(game_items)
-    
+
     games_grid = f"""    <Grid>
+        <Grid.RowDefinitions>
+        {grid_rows}</Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
         {grid_columns}</Grid.ColumnDefinitions>
         {games_block}
@@ -93,7 +106,7 @@ def main():
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_xaml)
 
-    print(f"[成功] 已生成 {output_path}，共 {len(games)} 个游戏。")
+    print(f"[成功] 已生成 {output_path}，共 {len(games)} 个游戏，{rows} 行 {COLUMNS} 列。")
 
 if __name__ == "__main__":
     main()
