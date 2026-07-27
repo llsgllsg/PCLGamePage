@@ -21,7 +21,7 @@ CATEGORY = "specials"
 LIMIT = 8
 LANGUAGE = "schinese"
 COLUMNS = 2  # 每行显示 2 列
-MIX_CATEGORIES = True  # ✅ 混合多个分类，大幅提升推荐丰富度
+MIX_CATEGORIES = True
 CATEGORY_LABEL = {
     "specials": "特惠游戏",
     "top_sellers": "热销商品",
@@ -46,7 +46,6 @@ def main():
     with open(os.path.join(template_dir, "footer.xaml"), "r", encoding="utf-8") as f:
         footer = f.read()
 
-    # 混合模式使用专门的标签
     if MIX_CATEGORIES:
         label_text = CATEGORY_LABEL["mixed"]
     else:
