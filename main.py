@@ -20,7 +20,7 @@ def replaces(template, data):
 CATEGORY = "specials"
 LIMIT = 8
 LANGUAGE = "schinese"
-COLUMNS = 4  # 每行显示数量，可改为 3 或 5
+COLUMNS = 4
 
 CATEGORY_LABEL = {
     "specials": "特惠游戏",
@@ -45,6 +45,7 @@ def main():
     with open(os.path.join(template_dir, "footer.xaml"), "r", encoding="utf-8") as f:
         footer = f.read()
 
+    # 处理 label，在标题后添加刷新按钮
     label_data = {
         "label": CATEGORY_LABEL.get(CATEGORY, "推荐游戏")
     }
@@ -53,7 +54,7 @@ def main():
     # 构建 Grid 列定义
     grid_columns = ""
     for i in range(COLUMNS):
-        grid_columns += f'<ColumnDefinition Width="1*" />\n        '
+        grid_columns += '<ColumnDefinition Width="1*" />\n        '
     
     # 构建游戏卡片
     game_items = []
@@ -80,7 +81,6 @@ def main():
 
     games_block = "\n    ".join(game_items)
     
-    # 构建带 Grid 的完整游戏列表
     games_grid = f"""    <Grid>
         <Grid.ColumnDefinitions>
         {grid_columns}</Grid.ColumnDefinitions>

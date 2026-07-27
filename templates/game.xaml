@@ -1,6 +1,8 @@
 <local:MyCard Grid.Column="{column}" Margin="5,2,5,8" CanSwap="False" HasMouseAnimation="True">
     <StackPanel>
-        <local:MyImage Source="{img}" Height="180" Stretch="UniformToFill" />
+        <Border Height="180" ClipToBounds="True">
+            <local:MyImage Source="{img}" Stretch="UniformToFill" />
+        </Border>
         <TextBlock Text="{name}" FontWeight="Bold" Margin="10,8,10,2" TextWrapping="Wrap" MaxHeight="40" TextAlignment="Center" />
         <TextBlock Text="{price}" FontSize="12" Foreground="{DynamicResource ColorBrush3}" Margin="10,0,10,4" TextAlignment="Center" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,4,0,8">
