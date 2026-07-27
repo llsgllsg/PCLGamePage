@@ -1,4 +1,4 @@
-<local:MyCard Margin="5" UseAnimation="False">
+<local:MyCard Grid.Row="{row}" Grid.Column="{column}" Margin="5" UseAnimation="False">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" MaxWidth="240" />
@@ -11,7 +11,6 @@
             <StackPanel Margin="3" Orientation="Horizontal">
                 {price}
             </StackPanel>
-            <!-- Github图标 -->
             <local:MyIconTextButton Height="35" HorizontalAlignment="Left"
                                     Text="查看商店" EventType="打开网页" EventData="{url}"
                                     LogoScale="1"
