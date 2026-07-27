@@ -66,8 +66,6 @@ def get_steam_games_cached(category, limit=10, language="schinese", mix_categori
                     else:
                         games = cache["data"].get(category, [])
                     
-                    # ✅ 修复BUG：先打乱全部游戏池，再取前limit个（原来写反了！）
-                    # 用日期+小时作为种子，每小时换一批，同一天有24种组合
                     seed = int(datetime.now().strftime("%Y%m%d%H"))
                     rng = random.Random(seed)
                     rng.shuffle(games)
@@ -94,7 +92,6 @@ def get_steam_games_cached(category, limit=10, language="schinese", mix_categori
     else:
         games = all_data.get(category, [])
     
-    # ✅ 修复BUG：先打乱全部，再取前limit个
     seed = int(datetime.now().strftime("%Y%m%d%H"))
     rng = random.Random(seed)
     rng.shuffle(games)
