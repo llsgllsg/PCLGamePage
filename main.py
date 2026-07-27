@@ -12,9 +12,14 @@ def escape_xaml(text):
     text = text.replace("'", "&apos;")
     return text
 
-def replaces(template, data):
+def replaces(template, data, no_escape_keys=None):
+    if no_escape_keys is None:
+        no_escape_keys = ['price']
     for key, value in data.items():
-        template = template.replace("{" + key + "}", escape_xaml(value))
+        if key in no_escape_keys:
+            template = template.replace("{" + key + "}", str(value))
+        else:
+            template = template.replace("{" + key + "}", escape_xaml(value))
     return template
 
 CATEGORY = "specials"
@@ -78,12 +83,12 @@ def main():
             "id": game["id"],
             "img": game["header_image"],
             "name": game["name"],
-            "price": price_xaml,
+            "price": price_xaml, 
             "url": store_url,
             "row": row,
             "column": col
         }
-        item_xaml = replaces(game_template, data)
+        item_xaml = replaces(game_template, data, no_escape_keys=['price'])
         game_items.append(item_xaml)
 
     games_block = "\n    ".join(game_items)
