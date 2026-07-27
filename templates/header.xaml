@@ -1,4 +1,4 @@
 <local:MyCard Title="" Margin="0,0,0,15" CanSwap="False" IsSwapped="False">
-    <StackPanel Margin="25,30,23,15">
+    <StackPanel Margin="0,0,0,0">
         <TextBlock TextWrapping="Wrap" Margin="0,0,0,12" FontSize="13" Foreground="{DynamicResource ColorBrush7}"
                     Text="" />
