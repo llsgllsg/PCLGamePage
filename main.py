@@ -20,7 +20,7 @@ def replaces(template, data):
 CATEGORY = "specials"
 LIMIT = 8
 LANGUAGE = "schinese"
-COLUMNS = 4
+COLUMNS = 2
 
 CATEGORY_LABEL = {
     "specials": "特惠游戏",
