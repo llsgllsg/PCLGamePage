@@ -1,7 +1,12 @@
 #使用CC BY-NC-SA 4.0 协议
 
 import os
-from steam_api import get_steam_games_cached
+from steam_api import get_games
+
+LABEL = "Steam游戏推荐"
+LIMIT = 16
+COLUMNS = 2
+
 
 def escape_xaml(text):
     if text is None:
@@ -14,9 +19,10 @@ def escape_xaml(text):
     text = text.replace("'", "&apos;")
     return text
 
+
 def replaces(template, data, no_escape_keys=None):
     if no_escape_keys is None:
-        no_escape_keys = ['price']
+        no_escape_keys = []
     for key, value in data.items():
         if key in no_escape_keys:
             template = template.replace("{" + key + "}", str(value))
@@ -24,20 +30,41 @@ def replaces(template, data, no_escape_keys=None):
             template = template.replace("{" + key + "}", escape_xaml(value))
     return template
 
-CATEGORY = "specials"
-LIMIT = 8
-LANGUAGE = "schinese"
-COLUMNS = 1
 
-CATEGORY_LABEL = {
-    "specials": "特惠游戏",
-    "top_sellers": "热销商品",
-    "new_releases": "新品上架",
-    "coming_soon": "即将推出"
-}
+def build_price_xaml(game):
+    fp = game.get("final_price")
+    dp = game.get("discount_percent") or 0
+    if fp is not None and dp > 0:
+        # 每项单独一行，避免窄卡片上横向重叠
+        parts = [
+            f'<TextBlock Text="¥{fp:.2f}" FontSize="22" FontWeight="Bold" Foreground="{{DynamicResource ColorBrush3}}" />'
+        ]
+        if game.get("original_price") is not None:
+            parts.append(
+                f'<TextBlock Text="原价 ¥{game["original_price"]:.2f}" FontSize="14" Foreground="{{DynamicResource ColorBrush6}}" />'
+            )
+        parts.append(f'<TextBlock Text="-{dp}%" FontSize="14" FontWeight="Bold" Foreground="{{DynamicResource ColorBrush3}}" />')
+        return "\n".join(parts)
+    if fp == 0:
+        return '<TextBlock Text="免费游玩" FontSize="22" FontWeight="Bold" Foreground="{DynamicResource ColorBrush4}" />'
+    if fp is not None:
+        return f'<TextBlock Text="¥{fp:.2f}" FontSize="18" Foreground="{{DynamicResource ColorBrush5}}" />'
+    return '<TextBlock Text="暂无价格" FontSize="18" Foreground="{DynamicResource ColorBrush6}" />'
+
+
+def build_rating_xaml(game):
+    rating_text = game.get("rating_text")
+    review_pct = game.get("review_pct")
+    if rating_text and review_pct is not None:
+        return (
+            f'<TextBlock Margin="0,4,0,0" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" '
+            f'Foreground="{{DynamicResource ColorBrush3}}" Text="{escape_xaml(rating_text)} {review_pct}%" />'
+        )
+    return ""
+
 
 def main():
-    games = get_steam_games_cached(CATEGORY, limit=LIMIT, language=LANGUAGE)
+    games = get_games(limit=LIMIT)
     if not games:
         print("[错误] 未能获取到游戏数据，请检查网络或重试。")
         return
@@ -52,7 +79,7 @@ def main():
     with open(os.path.join(template_dir, "footer.xaml"), "r", encoding="utf-8") as f:
         footer = f.read()
 
-    label_data = {"label": CATEGORY_LABEL.get(CATEGORY, "推荐游戏")}
+    label_data = {"label": LABEL}
     label_xaml = replaces(label_template, label_data)
 
     rows = (len(games) + COLUMNS - 1) // COLUMNS
@@ -67,15 +94,8 @@ def main():
 
     game_items = []
     for index, game in enumerate(games):
-        if game["discounted"] and game["final_price"] is not None:
-            price_xaml = f'''<TextBlock Text="¥{game['final_price']:.2f}" FontSize="22" FontWeight="Bold" Foreground="{{DynamicResource ColorBrush2}}" />
-<TextBlock Text="  原价 ¥{game['original_price']:.2f}" FontSize="14" Foreground="{{DynamicResource ColorBrush6}}" />
-<TextBlock Text="  -{game['discount_percent']}%" FontSize="14" Foreground="{{DynamicResource ColorBrush3}}" />'''
-        elif game["final_price"] == 0 or game["final_price"] is None:
-            price_xaml = '<TextBlock Text="免费游玩" FontSize="22" FontWeight="Bold" Foreground="{DynamicResource ColorBrush4}" />'
-        else:
-            price_xaml = f'<TextBlock Text="¥{game["final_price"]:.2f}" FontSize="18" Foreground="{{DynamicResource ColorBrush5}}" />'
-
+        price_xaml = build_price_xaml(game)
+        rating_xaml = build_rating_xaml(game)
         store_url = f"https://store.steampowered.com/app/{game['id']}"
 
         row = index // COLUMNS
@@ -83,14 +103,15 @@ def main():
 
         data = {
             "id": game["id"],
-            "img": game["header_image"],
+            "img": game.get("img"),
             "name": game["name"],
-            "price": price_xaml, 
+            "price": price_xaml,
+            "rating": rating_xaml,
             "url": store_url,
             "row": row,
             "column": col
         }
-        item_xaml = replaces(game_template, data, no_escape_keys=['price'])
+        item_xaml = replaces(game_template, data, no_escape_keys=['price', 'rating'])
         game_items.append(item_xaml)
 
     games_block = "\n    ".join(game_items)
@@ -110,6 +131,7 @@ def main():
         f.write(final_xaml)
 
     print(f"[成功] 已生成 {output_path}，共 {len(games)} 个游戏，{rows} 行 {COLUMNS} 列。")
+
 
 if __name__ == "__main__":
     main()

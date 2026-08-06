@@ -1,17 +1,19 @@
 <local:MyCard Grid.Row="{row}" Grid.Column="{column}" Margin="5" UseAnimation="False">
     <Grid Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" MaxWidth="240" />
-            <ColumnDefinition Width="2*" />
-        </Grid.ColumnDefinitions>
-        <local:MyImage Grid.Column="0" Source="{img}" Stretch="Uniform" />
-        <StackPanel Grid.Column="1" Margin="6,2">
-            <TextBlock FontSize="25" Margin="2,0" TextWrapping="Wrap" FontWeight="Bold"
-                       Foreground="{DynamicResource ColorBrush1}" Text="{name}" />
-            <StackPanel Margin="3" Orientation="Horizontal">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <local:MyImage Grid.Row="0" Source="{img}" Stretch="Uniform" />
+        <StackPanel Grid.Row="1" Margin="0,10,0,0">
+            <TextBlock FontSize="22" FontWeight="Bold"
+                       Foreground="{DynamicResource ColorBrush1}" Text="{name}" VerticalAlignment="Center"
+                       TextWrapping="Wrap" />
+            {rating}
+            <StackPanel Margin="0,4,0,0">
                 {price}
             </StackPanel>
-            <local:MyIconTextButton Height="35" HorizontalAlignment="Left"
+            <local:MyIconTextButton Height="32" HorizontalAlignment="Left" Margin="0,8,0,0"
                                     Text="查看商店" EventType="打开网页" EventData="{url}"
                                     LogoScale="1"
                                     Logo="M908 182.464c-46.208-46.24-101.856-69.344-166.976-69.344-64.736 0-120.224 22.848-166.432 68.544s-69.664 100.928-70.368 165.664l-147.52 211.392a206.336 206.336 0 0 0-18.176-1.024 169.92 169.92 0 0 0-89.856 24.928l-202.016-81.536v222.816l119.456 47.776c8.64 40.16 29.088 73.408 61.28 99.712s69.248 39.456 111.136 39.456c45.696 0 85.344-15.424 118.912-46.24s52.448-68.544 56.608-113.216l226.944-165.664c65.088 0 120.736-23.04 166.976-69.056s69.344-101.792 69.344-167.232c0-65.088-23.104-120.736-69.344-166.976z m-37.536 296.544c-36.16 36.032-78.496 53.568-129.44 53.568h-17.344l-260.352 190.048-2.208 23.904c-2.912 31.328-15.872 57.184-39.616 78.944-23.616 21.696-50.784 32.224-82.976 32.224a117.888 117.888 0 0 1-77.472-27.456 119.424 119.424 0 0 1-42.944-69.76L212.16 732.8l-112.288-44.928v-107.968l153.664 62.016 22.784-13.824a116.48 116.48 0 0 1 62.24-17.216c3.328 0 7.776 0.32 13.376 0.832l30.752 2.784 174.528-250.144 0.192-16.416c0.544-50.624 18.4-92.64 54.56-128.416s78.4-53.184 129.056-53.184c50.88 0 93.216 17.6 129.376 53.76s53.76 78.496 53.76 129.376c0 51.2-17.536 93.568-53.696 129.568z M741.568 222.208c-34.976 0-64.832 12.384-89.568 37.12s-37.12 54.624-37.12 89.568c0 34.976 12.384 64.832 37.12 89.568s54.624 37.12 89.568 37.12c34.976 0 64.832-12.384 89.6-37.12s37.12-54.624 37.12-89.568-12.384-64.832-37.12-89.568a122.048 122.048 0 0 0-89.6-37.12z m51.968 178.688c-14.688 14.72-31.232 21.568-51.968 21.568s-37.28-6.848-51.968-21.568c-14.688-14.72-21.568-31.232-21.568-51.968s6.848-37.28 21.568-51.968c14.688-14.72 31.232-21.568 51.968-21.568s37.28 6.848 51.968 21.568c14.688 14.72 21.568 31.232 21.568 51.968s-6.848 37.28-21.568 51.968zM338.976 654.816c-22.016 0-40.8 7.808-56.384 23.36s-23.36 34.368-23.36 56.384 7.808 40.8 23.36 56.384 34.368 23.36 56.384 23.36 40.8-7.808 56.384-23.36 23.36-34.368 23.36-56.384-7.808-40.8-23.36-56.384-34.368-23.36-56.384-23.36z" />

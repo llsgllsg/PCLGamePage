@@ -1,4 +1,9 @@
-<TextBlock TextWrapping="Wrap" Margin="0,0,0,12" FontSize="13" 
-           Foreground="Black" 
-           Text="本主页代码借鉴过wzyaeu 本主页使用CC BY-NC-SA 4.0 协议" />
+<local:MyCard Margin="5,18,5,5" UseAnimation="False">
+    <Grid Margin="14,10">
+        <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center"
+                   FontSize="14" FontWeight="Bold"
+                   Foreground="Black"
+                   Text="本主页代码借鉴过 wzyaeu · 本主页使用 CC BY-NC-SA 4.0 协议" />
+    </Grid>
+</local:MyCard>
 </StackPanel>
