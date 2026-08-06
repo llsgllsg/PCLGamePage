@@ -4,8 +4,8 @@ import os
 from steam_api import get_games
 
 LABEL = "Steam游戏推荐"
-LIMIT = 16
-COLUMNS = 3
+LIMIT = 20
+COLUMNS = 2
 
 
 def escape_xaml(text):
