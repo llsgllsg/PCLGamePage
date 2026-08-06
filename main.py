@@ -42,8 +42,9 @@ def build_price_xaml(game):
         ]
         if game.get("original_price") is not None:
             parts.append(
-                f'<TextBlock Text="原价 ¥{game["original_price"]:.2f}" FontSize="13" HorizontalAlignment="Center" '
-                f'TextDecorations="Strikethrough" Foreground="{{DynamicResource ColorBrush2}}" />'
+                f'<TextBlock Text="原价 ¥{game["original_price"]:.2f}" FontSize="16" FontWeight="Bold" '
+                f'HorizontalAlignment="Center" TextDecorations="Strikethrough" '
+                f'Foreground="{{DynamicResource ColorBrush1}}" />'
             )
         parts.append(
             f'<TextBlock Text="-{dp}%" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" '
@@ -62,7 +63,8 @@ def build_rating_xaml(game):
     review_pct = game.get("review_pct")
     if rating_text and review_pct is not None:
         return (
-            f'<TextBlock Margin="0,4,0,0" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" '
+            f'<TextBlock Margin="0,4,0,0" HorizontalAlignment="Center" TextAlignment="Center" '
+            f'VerticalAlignment="Center" FontSize="13" FontWeight="Bold" '
             f'Foreground="{{DynamicResource ColorBrush3}}" Text="{escape_xaml(rating_text)} {review_pct}%" />'
         )
     return ""

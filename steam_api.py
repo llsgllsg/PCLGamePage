@@ -239,6 +239,20 @@ def _filter_r18_descriptors(games, limit=16):
     return [g for g, d in zip(candidates, descs) if not (d & R18_DESCRIPTOR_IDS)]
 
 
+def _localize_name(appid):
+    """按中文查询 appdetails 拿 Steam 官方游戏名：有中文名用中文，没有则返回英文原名。"""
+    try:
+        r = requests.get("https://store.steampowered.com/api/appdetails",
+                         params={"appids": appid, "cc": "cn", "l": "schinese"}, timeout=12)
+        data = r.json().get(str(appid), {}).get("data", {})
+        name = data.get("name")
+        if name:
+            return name.strip()
+    except Exception:
+        pass
+    return None
+
+
 def _recency_score(year):
     """按发售年份给新度打分，越新分数越高（满分 100）。"""
     if not year:
@@ -295,6 +309,9 @@ def get_games(limit=8, cc="cn", language="schinese"):
     selected = pool[:limit]
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
         imgs = list(ex.map(resolve_image, selected))
-    for g, img in zip(selected, imgs):
+        names = list(ex.map(_localize_name, [g["id"] for g in selected]))
+    for g, img, loc_name in zip(selected, imgs, names):
         g["img"] = img
+        if loc_name:
+            g["name"] = loc_name  # 游戏名优先用 Steam 官方中文名，无中文则保持英文
     return selected
