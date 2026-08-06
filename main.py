@@ -1,3 +1,5 @@
+#使用CC BY-NC-SA 4.0 协议
+
 import os
 from steam_api import get_steam_games_cached
 
