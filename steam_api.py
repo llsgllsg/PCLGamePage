@@ -276,12 +276,13 @@ def get_games(limit=8, cc="cn", language="schinese"):
         with open(CACHE_FILE, "w", encoding="utf-8") as f:
             json.dump({"timestamp": datetime.now().isoformat(), "games": games}, f, ensure_ascii=False, indent=2)
 
-    # 过滤第一层：有折扣、评测数足够、好评率达标、排除 R18 社区标签游戏
+    # 过滤第一层：有折扣、评测数足够、好评率达标、排除 R18 社区标签、排除 100% 好评率(小样本失真)
     pool = [
         g for g in games
         if g["discount_percent"] > 0
         and g["review_count"] >= MIN_REVIEWS
         and (g["review_pct"] or 0) >= MIN_REVIEW_PCT
+        and g.get("review_pct") != 100
         and not (set(g.get("tag_ids") or []) & R18_TAG_IDS)
     ]
     for g in pool:
