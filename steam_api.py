@@ -3,6 +3,8 @@ import re
 import html as html_mod
 import os
 import json
+import time
+import concurrent.futures
 from datetime import datetime, timedelta
 
 CACHE_DIR = "cache"
@@ -16,6 +18,14 @@ W_DISCOUNT = 0.35           # 混合打分：折扣权重
 W_REVIEW = 0.35             # 混合打分：好评率权重
 W_RECENT = 0.30             # 混合打分：发售新度权重（越新越靠前）
 
+# R18 过滤第一层：命中以下 Steam 社区标签的游戏将被排除
+# 9130=动漫色情(Hentai) 6650=裸露(Nudity) 12095=色情内容(Sexual Content)
+R18_TAG_IDS = {9130, 6650, 12095}
+
+# R18 过滤第二层：内容分级描述符（appdetails 的 content_descriptors）
+# 1=部分裸露/性内容 3=成人专属 4=大量性内容。保留 2(频繁血腥暴力)等主流游戏。
+R18_DESCRIPTOR_IDS = {1, 3, 4}
+
 # 特惠搜索页解析正则
 ROW_RE = re.compile(r'<a\b[^>]*class="[^"]*search_result_row[^"]*"[^>]*>.*?</a>', re.S)
 APPID_RE = re.compile(r'data-ds-appid="(\d+)"')
@@ -24,6 +34,7 @@ CAPSULE_RE = re.compile(r'<div class="search_capsule"><img src="([^"]+)"')
 RELEASED_RE = re.compile(r'<div class="search_released[^"]*"[^>]*>(.*?)</div>', re.S)
 REVIEW_RE = re.compile(r'class="search_review_summary[^"]*" data-tooltip-html="([^"]*)"')
 TOOLTIP_RE = re.compile(r'([\d,]+) 篇用户评测中有 (\d+)% 为好评')
+TAGS_RE = re.compile(r'data-ds-tagids="\[([^\]]*)\]"')
 PRICE_FINAL_RE = re.compile(r'class="search_price_discount_combined[^"]*" data-price-final="(\d+)"')
 DISCOUNT_RE = re.compile(r'data-discount="(\d+)"')
 ORIG_PRICE_RE = re.compile(r'<div class="discount_original_price">([^<]*)</div>')
@@ -70,6 +81,12 @@ def parse_row(block):
         if m_year:
             year = int(m_year.group(1))
 
+    # 社区标签（用于 R18/R18G 过滤）
+    m_tags = TAGS_RE.search(block)
+    tag_ids = []
+    if m_tags:
+        tag_ids = [int(x) for x in m_tags.group(1).split(",") if x.strip().isdigit()]
+
     # 好评信息（好评等级 + 好评率 + 评测数）
     rating_text = None
     review_pct = None
@@ -99,6 +116,7 @@ def parse_row(block):
         "small_image": small_image,
         "release_date": release_date,
         "year": year,
+        "tag_ids": tag_ids,
         "rating_text": rating_text,
         "review_pct": review_pct,
         "review_count": review_count,
@@ -110,20 +128,28 @@ def parse_row(block):
 
 
 def fetch_search_specials(count=100, cc="cn", language="schinese"):
-    """从 Steam 特惠搜索页抓取打折游戏列表（category1=998 排除 DLC/软件）。"""
+    """从 Steam 特惠搜索页抓取打折游戏列表（category1=998 排除 DLC/软件），支持翻页。"""
     url = "https://store.steampowered.com/search/results/"
-    params = {
-        "query": "", "start": 0, "count": count,
-        "specials": 1, "category1": 998,
-        "cc": cc, "l": language,
-    }
-    resp = requests.get(url, params=params, headers=HEADERS, timeout=30)
-    resp.raise_for_status()
     games = []
-    for m in ROW_RE.finditer(resp.text):
-        g = parse_row(m.group(0))
-        if g:
-            games.append(g)
+    start = 0
+    while start < count:
+        page_count = min(100, count - start)
+        params = {
+            "query": "", "start": start, "count": page_count,
+            "specials": 1, "category1": 998,
+            "cc": cc, "l": language,
+        }
+        resp = requests.get(url, params=params, headers=HEADERS, timeout=30)
+        resp.raise_for_status()
+        page_games = []
+        for m in ROW_RE.finditer(resp.text):
+            g = parse_row(m.group(0))
+            if g:
+                page_games.append(g)
+        games.extend(page_games)
+        start += page_count
+        if not page_games:
+            break  # 没有更多结果
     return games
 
 
@@ -145,6 +171,72 @@ def resolve_image(game):
     except Exception:
         pass
     return game.get("small_image")
+
+
+DESC_CACHE_FILE = os.path.join(CACHE_DIR, "descriptors.json")
+DESC_CACHE_TTL = 7 * 24 * 3600   # 描述符缓存 7 天（内容分级很少变化）
+_desc_cache = None
+
+
+def _load_desc_cache():
+    global _desc_cache
+    if _desc_cache is not None:
+        return _desc_cache
+    _desc_cache = {}
+    if os.path.exists(DESC_CACHE_FILE):
+        try:
+            with open(DESC_CACHE_FILE, "r", encoding="utf-8") as f:
+                _desc_cache = json.load(f)
+        except Exception:
+            _desc_cache = {}
+    return _desc_cache
+
+
+def _save_desc_cache():
+    global _desc_cache
+    if _desc_cache is None:
+        return
+    _ensure_cache_dir()
+    try:
+        with open(DESC_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(_desc_cache, f, ensure_ascii=False)
+    except Exception:
+        pass
+
+
+def _query_descriptors(appid):
+    """请求 appdetails 拿内容分级描述符；失败返回空集合（不误杀）。"""
+    try:
+        r = requests.get("https://store.steampowered.com/api/appdetails",
+                         params={"appids": appid, "cc": "cn", "l": "schinese"}, timeout=12)
+        data = r.json().get(str(appid), {}).get("data", {})
+        return set(data.get("content_descriptors", {}).get("ids", []))
+    except Exception:
+        return set()
+
+
+def _fetch_descriptors(appid):
+    """带 7 天缓存的描述符查询。"""
+    cache = _load_desc_cache()
+    key = str(appid)
+    entry = cache.get(key)
+    now = time.time()
+    if entry and now - entry.get("ts", 0) < DESC_CACHE_TTL:
+        return set(entry.get("ids", []))
+    desc = _query_descriptors(appid)
+    cache[key] = {"ids": sorted(desc), "ts": now}
+    return desc
+
+
+def _filter_r18_descriptors(games, limit=16):
+    """并发查询内容分级，只检查打分最高的候选（约 limit*3 个），过滤掉 R18 描述符游戏。"""
+    if not games:
+        return games
+    candidates = games[:max(limit * 3, limit + 12)]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
+        descs = list(ex.map(_fetch_descriptors, [g["id"] for g in candidates]))
+    _save_desc_cache()
+    return [g for g, d in zip(candidates, descs) if not (d & R18_DESCRIPTOR_IDS)]
 
 
 def _recency_score(year):
@@ -180,22 +272,28 @@ def get_games(limit=8, cc="cn", language="schinese"):
 
     if games is None:
         print("[信息] 正在从 Steam 特惠搜索页获取数据...")
-        games = fetch_search_specials(cc=cc, language=language)
+        games = fetch_search_specials(count=200, cc=cc, language=language)
         with open(CACHE_FILE, "w", encoding="utf-8") as f:
             json.dump({"timestamp": datetime.now().isoformat(), "games": games}, f, ensure_ascii=False, indent=2)
 
-    # 过滤：有折扣、评测数足够、好评率达标
+    # 过滤第一层：有折扣、评测数足够、好评率达标、排除 R18 社区标签游戏
     pool = [
         g for g in games
         if g["discount_percent"] > 0
         and g["review_count"] >= MIN_REVIEWS
         and (g["review_pct"] or 0) >= MIN_REVIEW_PCT
+        and not (set(g.get("tag_ids") or []) & R18_TAG_IDS)
     ]
     for g in pool:
         g["score"] = _compute_score(g)
     pool.sort(key=lambda g: g["score"], reverse=True)
 
+    # 过滤第二层：内容分级描述符（并发查 appdetails，排除性/裸露/成人内容）
+    pool = _filter_r18_descriptors(pool, limit)
+
     selected = pool[:limit]
-    for g in selected:
-        g["img"] = resolve_image(g)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
+        imgs = list(ex.map(resolve_image, selected))
+    for g, img in zip(selected, imgs):
+        g["img"] = img
     return selected
