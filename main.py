@@ -35,21 +35,26 @@ def build_price_xaml(game):
     fp = game.get("final_price")
     dp = game.get("discount_percent") or 0
     if fp is not None and dp > 0:
-        # 每项单独一行，避免窄卡片上横向重叠
+        # 每项单独一行并水平居中，避免窄卡片上横向重叠，同时价格更醒目
         parts = [
-            f'<TextBlock Text="¥{fp:.2f}" FontSize="22" FontWeight="Bold" Foreground="{{DynamicResource ColorBrush3}}" />'
+            f'<TextBlock Text="¥{fp:.2f}" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" '
+            f'Foreground="{{DynamicResource ColorBrush1}}" />'
         ]
         if game.get("original_price") is not None:
             parts.append(
-                f'<TextBlock Text="原价 ¥{game["original_price"]:.2f}" FontSize="14" Foreground="{{DynamicResource ColorBrush6}}" />'
+                f'<TextBlock Text="原价 ¥{game["original_price"]:.2f}" FontSize="13" HorizontalAlignment="Center" '
+                f'TextDecorations="Strikethrough" Foreground="{{DynamicResource ColorBrush2}}" />'
             )
-        parts.append(f'<TextBlock Text="-{dp}%" FontSize="14" FontWeight="Bold" Foreground="{{DynamicResource ColorBrush3}}" />')
+        parts.append(
+            f'<TextBlock Text="-{dp}%" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" '
+            f'Foreground="{{DynamicResource ColorBrush3}}" />'
+        )
         return "\n".join(parts)
     if fp == 0:
-        return '<TextBlock Text="免费游玩" FontSize="22" FontWeight="Bold" Foreground="{DynamicResource ColorBrush4}" />'
+        return '<TextBlock Text="免费游玩" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{DynamicResource ColorBrush3}" />'
     if fp is not None:
-        return f'<TextBlock Text="¥{fp:.2f}" FontSize="18" Foreground="{{DynamicResource ColorBrush5}}" />'
-    return '<TextBlock Text="暂无价格" FontSize="18" Foreground="{DynamicResource ColorBrush6}" />'
+        return f'<TextBlock Text="¥{fp:.2f}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{{DynamicResource ColorBrush1}}" />'
+    return '<TextBlock Text="暂无价格" FontSize="16" HorizontalAlignment="Center" Foreground="{DynamicResource ColorBrush6}" />'
 
 
 def build_rating_xaml(game):
