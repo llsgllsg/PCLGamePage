@@ -8,6 +8,8 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: 拉取代码
@@ -32,6 +34,19 @@ jobs:
           else
             echo "文件未生成，请检查脚本"
             exit 1
+          fi
+
+      - name: 记录当天已推游戏并写回仓库
+        run: |
+          git config user.name "llsgllsg"
+          git config user.email "151439431+llsgllsg@users.noreply.github.com"
+          git config http.version HTTP/1.1
+          git add history.json
+          if git diff --cached --quiet; then
+            echo "history.json 无变化，跳过提交"
+          else
+            git commit -m "update history ($(date -u +%F))"
+            git push
           fi
 
       - name: 安装 sshpass
