@@ -3,13 +3,18 @@ import re
 import html as html_mod
 import os
 import json
+import random
 import time
 import concurrent.futures
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
 CACHE_DIR = "cache"
 CACHE_FILE = os.path.join(CACHE_DIR, "steam_games.json")
 CACHE_EXPIRE_MINUTES = 60
+
+# 去重记录：把每天推过的游戏写回仓库 history.json，保证与最近 14 天推送不撞车
+HISTORY_FILE = "history.json"
+HISTORY_KEEP_DAYS = 14
 
 # 过滤与打分参数
 MIN_REVIEWS = 100           # 过滤评测数过少的新游戏，避免好评率失真
@@ -228,15 +233,14 @@ def _fetch_descriptors(appid):
     return desc
 
 
-def _filter_r18_descriptors(games, limit=16):
-    """并发查询内容分级，只检查打分最高的候选（约 limit*3 个），过滤掉 R18 描述符游戏。"""
+def _filter_r18_descriptors(games):
+    """并发查询内容分级，过滤掉 R18 描述符游戏（带 7 天缓存）。"""
     if not games:
         return games
-    candidates = games[:max(limit * 3, limit + 12)]
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
-        descs = list(ex.map(_fetch_descriptors, [g["id"] for g in candidates]))
+        descs = list(ex.map(_fetch_descriptors, [g["id"] for g in games]))
     _save_desc_cache()
-    return [g for g, d in zip(candidates, descs) if not (d & R18_DESCRIPTOR_IDS)]
+    return [g for g, d in zip(games, descs) if not (d & R18_DESCRIPTOR_IDS)]
 
 
 def _localize_name(appid):
@@ -270,8 +274,39 @@ def _compute_score(game):
     )
 
 
+def _day_number():
+    """1970-01-01 至今的天数，用作每日随机种子（同一天重复跑结果一致）。"""
+    return (date.today() - date(1970, 1, 1)).days
+
+
+def _load_history():
+    """读取仓库里的已推游戏记录，返回 {日期: [appid, ...]}。"""
+    if not os.path.exists(HISTORY_FILE):
+        return {}
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            return json.load(f).get("history") or {}
+    except Exception:
+        return {}
+
+
+def _prune_history(history):
+    """只保留最近 HISTORY_KEEP_DAYS 天的记录，按日期升序返回。"""
+    cutoff = (date.today() - timedelta(days=HISTORY_KEEP_DAYS)).isoformat()
+    return dict(sorted((d, ids) for d, ids in history.items() if d >= cutoff))
+
+
+def _save_history(history):
+    """把去重记录写回 history.json（由 Action 提交到仓库）。"""
+    try:
+        with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump({"history": history}, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"[警告] 写入去重记录失败: {e}")
+
+
 def get_games(limit=8, cc="cn", language="schinese"):
-    """读取缓存或抓取特惠游戏，过滤后按混合打分排序，返回前 limit 个（已解析高清图）。"""
+    """读取缓存或抓取特惠游戏，过滤后排除最近 14 天推过的，按日期随机选 limit 个（已解析高清图）。"""
     _ensure_cache_dir()
     games = None
     if os.path.exists(CACHE_FILE):
@@ -286,7 +321,7 @@ def get_games(limit=8, cc="cn", language="schinese"):
 
     if games is None:
         print("[信息] 正在从 Steam 特惠搜索页获取数据...")
-        games = fetch_search_specials(count=200, cc=cc, language=language)
+        games = fetch_search_specials(count=500, cc=cc, language=language)
         with open(CACHE_FILE, "w", encoding="utf-8") as f:
             json.dump({"timestamp": datetime.now().isoformat(), "games": games}, f, ensure_ascii=False, indent=2)
 
@@ -304,9 +339,32 @@ def get_games(limit=8, cc="cn", language="schinese"):
     pool.sort(key=lambda g: g["score"], reverse=True)
 
     # 过滤第二层：内容分级描述符（并发查 appdetails，排除性/裸露/成人内容）
-    pool = _filter_r18_descriptors(pool, limit)
+    pool = _filter_r18_descriptors(pool)
+    if not pool:
+        return []
 
-    selected = pool[:limit]
+    # 去重：排除最近 HISTORY_KEEP_DAYS 天推过的游戏，保证不撞车。
+    # 候选池不足以选满 limit 个时，从最早一天开始逐步放宽排除窗口。
+    history = _prune_history(_load_history())
+    recent_days = sorted(history)
+    eligible = []
+    for window in range(HISTORY_KEEP_DAYS, -1, -1):
+        recent_ids = set()
+        for d in recent_days[-window:] if window else []:
+            recent_ids.update(history[d])
+        eligible = [g for g in pool if g["id"] not in recent_ids]
+        if len(eligible) >= limit or window == 0:
+            break
+
+    # 用当天日期做种子打乱候选池，取前 limit 个（同一天重复跑结果一致）
+    rng = random.Random(_day_number())
+    rng.shuffle(eligible)
+    selected = eligible[:limit]
+
+    # 记录当天已推游戏，写回 history.json（由 Action 提交到仓库）
+    history = _prune_history(_load_history())
+    history[date.today().isoformat()] = [g["id"] for g in selected]
+    _save_history(_prune_history(history))
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
         imgs = list(ex.map(resolve_image, selected))
         names = list(ex.map(_localize_name, [g["id"] for g in selected]))
