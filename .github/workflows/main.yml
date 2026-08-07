@@ -41,7 +41,7 @@ jobs:
           git config user.name "llsgllsg"
           git config user.email "151439431+llsgllsg@users.noreply.github.com"
           git config http.version HTTP/1.1
-          git add history.json
+          git add history.json images/
           if git diff --cached --quiet; then
             echo "history.json 无变化，跳过提交"
           else
@@ -62,8 +62,8 @@ jobs:
         run: |
           for i in 1 2; do
             echo "尝试上传 XAML (第 $i 次)"
-            if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
-                SteamPage.xaml \
+            if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -r -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
+                SteamPage.xaml images \
                 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
               echo "XAML 上传成功"
               exit 0
