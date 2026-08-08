@@ -16,6 +16,11 @@ CACHE_EXPIRE_MINUTES = 60
 HISTORY_FILE = "history.json"
 HISTORY_KEEP_DAYS = 14
 
+# 图片缓存：把选中的游戏封面下载到本地 images/ 目录，随 XAML 一起上传到云端
+# （仓库缓存一份 + scp 到服务器，XAML 改为引用自己服务器的图，不依赖 Steam CDN）
+IMAGE_DIR = "images"
+IMAGE_BASE_URL = "https://g-fish.dpdns.org/download/images/"
+
 # 过滤与打分参数
 MIN_REVIEWS = 100           # 过滤评测数过少的新游戏，避免好评率失真
 MIN_REVIEW_PCT = 70         # 只保留至少"多半好评"的游戏（高分精选）
@@ -176,6 +181,48 @@ def resolve_image(game):
     except Exception:
         pass
     return game.get("small_image")
+
+
+def _download_images(games):
+    """把选中的游戏封面下载到本地 images/ 目录（仓库缓存 + 随 XAML 上传云端）。
+    只保留当前这批，删除不再引用的旧图，避免仓库无限膨胀。
+    返回成功下载的 appid 集合；已存在的直接复用，不重复下载。"""
+    if not games:
+        return set()
+    if not os.path.exists(IMAGE_DIR):
+        os.makedirs(IMAGE_DIR)
+
+    keep_ids = {g["id"] for g in games}
+    ok = set()
+    for g in games:
+        url = g.get("img")
+        if not url:
+            continue
+        path = os.path.join(IMAGE_DIR, f"{g['id']}.jpg")
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            ok.add(g["id"])  # 已缓存过，复用
+            continue
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=15)
+            if r.status_code == 200 and r.content:
+                with open(path, "wb") as f:
+                    f.write(r.content)
+                ok.add(g["id"])
+                print(f"[信息] 已缓存图片 {g['id']}.jpg")
+        except Exception as e:
+            print(f"[警告] 下载图片失败 {g['id']}: {e}")
+
+    # 清理不再引用的旧图，仓库里只保留当前这批封面
+    for name in os.listdir(IMAGE_DIR):
+        if not name.endswith(".jpg"):
+            continue
+        appid = name[:-4]
+        if not appid.isdigit() or int(appid) not in keep_ids:
+            try:
+                os.remove(os.path.join(IMAGE_DIR, name))
+            except OSError:
+                pass
+    return ok
 
 
 DESC_CACHE_FILE = os.path.join(CACHE_DIR, "descriptors.json")
@@ -372,4 +419,10 @@ def get_games(limit=8, cc="cn", language="schinese"):
         g["img"] = img
         if loc_name:
             g["name"] = loc_name  # 游戏名优先用 Steam 官方中文名，无中文则保持英文
+
+    # 下载封面到本地 images/ 目录，并把 XAML 引用的图片地址换成自己服务器的
+    downloaded = _download_images(selected)
+    for g in selected:
+        if g["id"] in downloaded:
+            g["img"] = f"{IMAGE_BASE_URL}{g['id']}.jpg"
     return selected
