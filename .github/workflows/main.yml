@@ -60,10 +60,16 @@ jobs:
 
       - name: 清理远程旧图片缓存（只保留当天这批）
         run: |
-          sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
-            "rm -rf ${{ secrets.SERVER_PATH }}/images"
-          echo "远程旧图片缓存已清理"
+          # 只删 images/ 目录下第一层的 .jpg 封面：不递归、不删目录、不碰其他文件。
+          # 路径为空时直接跳过，避免误删服务器上的其他目录。
+          if [ -z "${{ secrets.SERVER_PATH }}" ]; then
+            echo "SERVER_PATH 为空，跳过清理"
+          else
+            sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
+              ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+              "mkdir -p ${{ secrets.SERVER_PATH }}/images && find ${{ secrets.SERVER_PATH }}/images -maxdepth 1 -type f -name '*.jpg' -delete"
+            echo "远程旧图片已清理"
+          fi
 
       - name: 上传 XAML 文件
         run: |
