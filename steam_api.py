@@ -24,9 +24,9 @@ IMAGE_BASE_URL = "https://g-fish.dpdns.org/download/images/"
 # 过滤与打分参数
 MIN_REVIEWS = 100           # 过滤评测数过少的新游戏，避免好评率失真
 MIN_REVIEW_PCT = 70         # 只保留至少"多半好评"的游戏（高分精选）
-W_DISCOUNT = 0.35           # 混合打分：折扣权重
-W_REVIEW = 0.35             # 混合打分：好评率权重
-W_RECENT = 0.30             # 混合打分：发售新度权重（越新越靠前）
+W_DISCOUNT = 0.15           # 混合打分：折扣权重
+W_REVIEW = 0.25             # 混合打分：好评率权重
+W_RECENT = 0.60             # 混合打分：发售新度权重（越新越靠前，主页以新游戏为主）
 
 # R18 过滤第一层：命中以下 Steam 社区标签的游戏将被排除
 # 9130=动漫色情(Hentai) 6650=裸露(Nudity) 12095=色情内容(Sexual Content)
@@ -305,11 +305,12 @@ def _localize_name(appid):
 
 
 def _recency_score(year):
-    """按发售年份给新度打分，越新分数越高（满分 100）。"""
+    """按发售年份给新度打分，越新分数越高（满分 100）。
+    曲线较陡：近 3 年才有明显新度分，老游戏趋近 0，保证主页以新游戏为主。"""
     if not year:
         return 0
     age = max(0, datetime.now().year - year)
-    return max(0, 100 - age * 18)
+    return max(0, 100 - age * 25)
 
 
 def _compute_score(game):
@@ -319,6 +320,27 @@ def _compute_score(game):
         + W_REVIEW * (game["review_pct"] or 0)
         + W_RECENT * _recency_score(game.get("year"))
     )
+
+
+def _weighted_sample(rng, games, k):
+    """按 score 加权随机抽 k 个（不重复），分数越高越容易被选中。
+    保底权重 1，保证低分游戏偶尔也能出现；同一天重复跑结果一致。"""
+    if len(games) <= k:
+        return games[:]
+    pool = list(games)
+    weights = [max(g["score"], 1) for g in pool]
+    chosen = []
+    for _ in range(k):
+        total = sum(weights)
+        r = rng.random() * total
+        acc = 0
+        for i, w in enumerate(weights):
+            acc += w
+            if r <= acc:
+                chosen.append(pool.pop(i))
+                weights.pop(i)
+                break
+    return chosen
 
 
 def _day_number():
@@ -403,10 +425,11 @@ def get_games(limit=8, cc="cn", language="schinese"):
         if len(eligible) >= limit or window == 0:
             break
 
-    # 用当天日期做种子打乱候选池，取前 limit 个（同一天重复跑结果一致）
+    # 用当天日期做种子，按分数加权随机抽 limit 个（同一天重复跑结果一致）。
+    # 之前用 shuffle 均匀随机，打分完全不影响选中概率，导致整页偏老游戏；
+    # 改为分数加权抽样后，新游戏/高折扣/好评高分的更常被选中。
     rng = random.Random(_day_number())
-    rng.shuffle(eligible)
-    selected = eligible[:limit]
+    selected = _weighted_sample(rng, eligible, limit)
 
     # 记录当天已推游戏，写回 history.json（由 Action 提交到仓库）
     history = _prune_history(_load_history())
