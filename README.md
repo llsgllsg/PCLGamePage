@@ -1,2 +1,25 @@
-## 一个PCL2游戏推荐主页
-订阅地址：https://g-fish.dpdns.org/download/SteamPage.xaml
+# PCL Steam Page
+
+PCL Steam Page主页仓库。
+
+## 使用
+
+### 使用预设
+
+即将上架PCL预设，前往`设置->个性化->主页`，选择预设`Steam游戏推荐`。
+
+### 使用链接
+
+前往`设置->个性化->主页`，输入联网下载地址`https://g-fish.dpdns.org/download/SteamPage.xaml`。
+
+## 协议
+
+本仓库使用 CC BY-NC-SA 4.0 协议。
+
+本仓库的上游为https://github.com/wzyaeu/PCLCloudMusicPage
+
+所以如果你想借鉴本仓库代码&样式的话，需要在代码文件头部中标注出原作者并使用同样的 CC BY-NC-SA 4.0 协议。
+
+如果是PCL主页仓库则需要在主页文件中标出。建议在主页尾部“特别鸣谢”中标注。标注内容的颜色和字号需要保证可读性，上下文不能出现冒犯性或容易引起反感的内容。
+
+欢迎接着Fork，如有需要可以前往我个人主页获取联系方式！
