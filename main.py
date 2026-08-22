@@ -3,7 +3,7 @@
 import os
 from steam_api import get_games, get_epic_free_games
 
-LABEL = "Steam游戏推荐"
+LABEL = "每日游戏推荐"
 EPIC_LABEL = "Epic本周免费"
 LIMIT = 20
 EPIC_LIMIT = 10
@@ -139,7 +139,7 @@ def main():
     epic_games = get_epic_free_games()[:EPIC_LIMIT]
     epic_section = ""
     if epic_games:
-        epic_label_xaml = replaces(label_template, {"label": EPIC_LABEL})
+        epic_label_xaml = f'<TextBlock Text="{EPIC_LABEL}" FontSize="20" FontWeight="Bold" Foreground="{{DynamicResource ColorBrush2}}" Margin="0,18,0,12" VerticalAlignment="Center" />'
         epic_rows = (len(epic_games) + COLUMNS - 1) // COLUMNS
         epic_grid_rows = ""
         for i in range(epic_rows):
