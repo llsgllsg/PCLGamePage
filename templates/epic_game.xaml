@@ -1,0 +1,24 @@
+<local:MyCard Grid.Row="{row}" Grid.Column="{column}" Margin="5" UseAnimation="False">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <local:MyImage Grid.Row="0" Source="{img}" Stretch="Uniform" />
+        <StackPanel Grid.Row="1" Margin="0,10,0,0">
+            <TextBlock FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" TextAlignment="Center"
+                       Foreground="{DynamicResource ColorBrush1}" Text="{name}" VerticalAlignment="Center"
+                       TextWrapping="Wrap" />
+            <TextBlock Margin="0,4,0,0" HorizontalAlignment="Center" TextAlignment="Center"
+                       FontSize="14" FontWeight="Bold"
+                       Foreground="{DynamicResource ColorBrush3}" Text="免费领取中" />
+            <TextBlock Margin="0,2,0,0" HorizontalAlignment="Center" TextAlignment="Center"
+                       FontSize="12"
+                       Foreground="{DynamicResource ColorBrush3}" Text="截止 {free_end}" />
+            <local:MyIconTextButton Height="32" HorizontalAlignment="Center" Margin="0,8,0,0"
+                                    Text="前往 Epic 领取" EventType="打开网页" EventData="{url}"
+                                    LogoScale="1"
+                                    Logo="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.6c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312.6l-65.1 65.1c-4.7 4.7-12.3 4.7-17 0L142.4 343.6c-4.7-4.7-4.7-12.3 0-17l65.1-65.1-65.1-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65.1 65.1 65.1-65.1c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17l-65.1 65.1 65.1 65.1z" />
+        </StackPanel>
+    </Grid>
+</local:MyCard>

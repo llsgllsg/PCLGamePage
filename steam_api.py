@@ -449,3 +449,29 @@ def get_games(limit=8, cc="cn", language="schinese"):
         if g["id"] in downloaded:
             g["img"] = f"{IMAGE_BASE_URL}{g['id']}.jpg"
     return selected
+
+
+def get_epic_free_games():
+    """从 uapis.cn 获取 Epic 当前免费游戏列表，返回适配 XAML 渲染的字典列表。"""
+    try:
+        r = requests.get("https://uapis.cn/api/v1/game/epic-free", timeout=15)
+        data = r.json().get("data") or []
+    except Exception as e:
+        print(f"[警告] 获取 Epic 免费游戏失败: {e}")
+        return []
+    games = []
+    for item in data:
+        if not item.get("is_free_now"):
+            continue
+        # 去掉标题里的书名号《》
+        title = item.get("title", "").strip()
+        title = title.removeprefix("《").removesuffix("》")
+        games.append({
+            "id": item.get("id", ""),
+            "name": title,
+            "img": item.get("cover", ""),
+            "original_price_desc": item.get("original_price_desc", ""),
+            "free_end": item.get("free_end", ""),
+            "link": item.get("link", ""),
+        })
+    return games

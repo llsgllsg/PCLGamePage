@@ -1,10 +1,12 @@
 #使用CC BY-NC-SA 4.0 协议
 
 import os
-from steam_api import get_games
+from steam_api import get_games, get_epic_free_games
 
-LABEL = "Steam游戏推荐"
+LABEL = "每日游戏推荐"
+EPIC_LABEL = "Epic本周免费"
 LIMIT = 20
+EPIC_LIMIT = 10
 COLUMNS = 2
 
 
@@ -85,6 +87,8 @@ def main():
         game_template = f.read()
     with open(os.path.join(template_dir, "footer.xaml"), "r", encoding="utf-8") as f:
         footer = f.read()
+    with open(os.path.join(template_dir, "epic_game.xaml"), "r", encoding="utf-8") as f:
+        epic_game_template = f.read()
 
     label_data = {"label": LABEL}
     label_xaml = replaces(label_template, label_data)
@@ -131,13 +135,49 @@ def main():
         {games_block}
     </Grid>"""
 
-    final_xaml = header + "\n" + label_xaml + "\n" + games_grid + "\n" + footer
+    # ===== Epic 免费游戏板块 =====
+    epic_games = get_epic_free_games()[:EPIC_LIMIT]
+    epic_section = ""
+    if epic_games:
+        epic_label_xaml = f'<TextBlock Text="{EPIC_LABEL}" FontSize="20" FontWeight="Bold" Foreground="{{DynamicResource ColorBrush2}}" Margin="0,18,0,12" VerticalAlignment="Center" />'
+        epic_rows = (len(epic_games) + COLUMNS - 1) // COLUMNS
+        epic_grid_rows = ""
+        for i in range(epic_rows):
+            epic_grid_rows += '<RowDefinition Height="Auto" />\n        '
+        epic_items = []
+        for index, game in enumerate(epic_games):
+            row = index // COLUMNS
+            col = index % COLUMNS
+            data = {
+                "id": game["id"],
+                "img": game.get("img", ""),
+                "name": game["name"],
+                "price": escape_xaml(game.get("original_price_desc", "")),
+                "free_end": escape_xaml(game.get("free_end", "")),
+                "url": game.get("link", ""),
+                "row": row,
+                "column": col,
+            }
+            item_xaml = replaces(epic_game_template, data, no_escape_keys=["price", "free_end"])
+            epic_items.append(item_xaml)
+        epic_block = "\n    ".join(epic_items)
+        epic_grid = f"""    <Grid>
+        <Grid.RowDefinitions>
+        {epic_grid_rows}</Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        {grid_columns}</Grid.ColumnDefinitions>
+        {epic_block}
+    </Grid>"""
+        epic_section = "\n" + epic_label_xaml + "\n" + epic_grid
+
+    final_xaml = header + "\n" + label_xaml + "\n" + games_grid + epic_section + "\n" + footer
 
     output_path = "SteamPage.xaml"
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_xaml)
 
-    print(f"[成功] 已生成 {output_path}，共 {len(games)} 个游戏，{rows} 行 {COLUMNS} 列。")
+    epic_count = len(epic_games)
+    print(f"[成功] 已生成 {output_path}，Steam {len(games)} 个（{rows} 行 {COLUMNS} 列），Epic 免费 {epic_count} 个。")
 
 
 if __name__ == "__main__":
