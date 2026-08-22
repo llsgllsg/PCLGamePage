@@ -172,7 +172,7 @@ def main():
 
     final_xaml = header + "\n" + label_xaml + "\n" + games_grid + epic_section + "\n" + footer
 
-    output_path = "SteamPage.xaml"
+    output_path = "GamePage.xaml"
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_xaml)
 
