@@ -10,7 +10,7 @@ PCL Game Page主页仓库。
 
 ### 使用链接
 
-前往`设置->个性化->主页`，输入联网下载地址`https://g-fish.dpdns.org/download/SteamPage.xaml`。
+前往`设置->个性化->主页`，输入联网下载地址`https://g-fish.dpdns.org/download/GamePage.xaml`。
 
 ## 协议
 
