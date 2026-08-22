@@ -2,7 +2,7 @@
 
 import os
 from api import get_games, get_epic_free_games
-
+#修改了API名字
 LABEL = "每日游戏推荐"
 EPIC_LABEL = "Epic本周免费"
 LIMIT = 20
