@@ -1,7 +1,7 @@
 #使用CC BY-NC-SA 4.0 协议
 
 import os
-from steam_api import get_games, get_epic_free_games
+from api import get_games, get_epic_free_games
 
 LABEL = "每日游戏推荐"
 EPIC_LABEL = "Epic本周免费"
