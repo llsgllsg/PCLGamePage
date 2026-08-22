@@ -1,12 +1,12 @@
-# PCL Steam Page
+# PCL Game Page
 
-PCL Steam Page主页仓库。
+PCL Game Page主页仓库。
 
 ## 使用
 
 ### 使用预设
 
-即将上架PCL预设，前往`设置->个性化->主页`，选择预设`Steam游戏推荐`。
+即将上架PCL预设，前往`设置->个性化->主页`，选择预设`每日游戏推荐`。
 
 ### 使用链接
 
