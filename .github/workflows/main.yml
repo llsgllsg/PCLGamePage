@@ -28,9 +28,9 @@ jobs:
 
       - name: 检查生成的文件
         run: |
-          if [ -f "SteamPage.xaml" ]; then
+          if [ -f "GamePage.xaml" ]; then
             echo "文件已生成"
-            ls -la SteamPage.xaml
+            ls -la GamePage.xaml
           else
             echo "文件未生成，请检查脚本"
             exit 1
@@ -60,8 +60,6 @@ jobs:
 
       - name: 清理远程旧图片缓存（只保留当天这批）
         run: |
-          # 只删 images/ 目录下第一层的 .jpg 封面：不递归、不删目录、不碰其他文件。
-          # 路径为空时直接跳过，避免误删服务器上的其他目录。
           if [ -z "${{ secrets.SERVER_PATH }}" ]; then
             echo "SERVER_PATH 为空，跳过清理"
           else
@@ -76,7 +74,7 @@ jobs:
           for i in 1 2; do
             echo "尝试上传 XAML (第 $i 次)"
             if sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -r -o StrictHostKeyChecking=no -P ${{ secrets.SERVER_PORT || 22 }} \
-                SteamPage.xaml images \
+                GamePage.xaml images \
                 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/; then
               echo "XAML 上传成功"
               exit 0
@@ -88,10 +86,10 @@ jobs:
           echo "上传失败，放弃"
           exit 1
 
-      - name: 在远程创建/覆盖版本号文件 SteamPage.xaml.ini
+      - name: 在远程创建/覆盖版本号文件 GamePage.xaml.ini
         run: |
           TIMESTAMP=$(date -u +%s)
           sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
-            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/SteamPage.xaml.ini"
+            "echo $TIMESTAMP > ${{ secrets.SERVER_PATH }}/GamePage.xaml.ini"
           echo "版本号已更新: $TIMESTAMP"
