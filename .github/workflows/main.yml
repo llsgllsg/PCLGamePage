@@ -15,7 +15,7 @@ jobs:
       - name: 拉取代码
         uses: actions/checkout@v4
 
-      - name: 安装 Python
+      - name: Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -23,7 +23,7 @@ jobs:
       - name: 安装依赖
         run: pip install requests
 
-      - name: 运行脚本生成 XAML
+      - name: 生成主页
         run: python main.py
 
       - name: 检查生成的文件
@@ -36,7 +36,7 @@ jobs:
             exit 1
           fi
 
-      - name: 记录当天已推游戏并写回仓库
+      - name: 写回仓库
         run: |
           git config user.name "llsgllsg"
           git config user.email "151439431+llsgllsg@users.noreply.github.com"
@@ -49,16 +49,16 @@ jobs:
             git push
           fi
 
-      - name: 安装 sshpass
+      - name: sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: 确保远程目录存在
+      - name: 检查目录
         run: |
           sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
             "mkdir -p ${{ secrets.SERVER_PATH }}"
 
-      - name: 清理远程旧图片缓存（只保留当天这批）
+      - name: 清理老旧图片
         run: |
           if [ -z "${{ secrets.SERVER_PATH }}" ]; then
             echo "SERVER_PATH 为空，跳过清理"
@@ -69,7 +69,7 @@ jobs:
             echo "远程旧图片已清理"
           fi
 
-      - name: 上传 XAML 文件
+      - name: 上传
         run: |
           for i in 1 2; do
             echo "尝试上传 XAML (第 $i 次)"
@@ -86,7 +86,7 @@ jobs:
           echo "上传失败，放弃"
           exit 1
 
-      - name: 在远程创建/覆盖版本号文件 GamePage.xaml.ini
+      - name: 更新版本号
         run: |
           TIMESTAMP=$(date -u +%s)
           sshpass -p '${{ secrets.SSH_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT || 22 }} \
