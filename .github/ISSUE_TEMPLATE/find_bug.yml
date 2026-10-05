@@ -24,9 +24,12 @@ body:
     attributes:
       label: 确认
       options:
-        - label: 我已确认该BUG可有效复现，且未在现有投票中重复提交。
+        - label: 我已确认该BUG可有效复现，且未在现有提交中重复提交。
           required: true
+        - label: 我确认我是为了勾选全部按钮而勾选了此按钮，且同意此提交被关闭
+          required: false          
         - label: 我确保我使用的是最新版本的PCL2且不是非官方构建版
           required: true
+
     validations:
       required: true
