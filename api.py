@@ -12,9 +12,8 @@ CACHE_DIR = "cache"
 CACHE_FILE = os.path.join(CACHE_DIR, "steam_games.json")
 CACHE_EXPIRE_MINUTES = 60
 
-# 去重记录：把每天推过的游戏写回仓库 history.json，保证与最近 14 天推送不撞车
 HISTORY_FILE = "history.json"
-HISTORY_KEEP_DAYS = 14
+HISTORY_KEEP_DAYS = 30
 
 # 图片缓存：把选中的游戏封面下载到本地 images/ 目录，随 XAML 一起上传到云端
 # （仓库缓存一份 + scp 到服务器，XAML 改为引用自己服务器的图，不依赖 Steam CDN）
